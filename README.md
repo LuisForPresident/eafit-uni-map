@@ -4,7 +4,7 @@
 - [ ] A brief description of what this project does and who it's for
 
 
-- [ ] LOGO
+- [ ] LOGO??? Perhaps
 
 
 ## Roadmap
@@ -17,10 +17,6 @@
 ## Features
 
 - [ ] Add real features and remove placeholders
-- Light/dark mode toggle
-- Live previews
-- Fullscreen mode
-- Cross platform
 
 
 ## Demo
@@ -58,7 +54,7 @@ Start the server
 ## Authors
 
 - [Luis M. Torres-Villegas](https://www.github.com/LuisForPresident)
-- Miguel Suárez-Obando
+- [Miguel Suárez-Obando](https://www.github.com/MSO2023)
 
 
 ## Contributing
