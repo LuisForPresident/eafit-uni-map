@@ -55,20 +55,7 @@ Start the server
 - [Miguel Suárez-Obando](https://www.github.com/MSO2023)
 
 
-## Contributing
 
-Contributions are unwelcome lmao.
-
-
-## Feedback
-
-If you have any feedback, eh… well, maybe reconsider.
-
-
-## Related projects
-
-- [Adrephos/EAFIT-maps](https://github.com/Adrephos/EAFIT-maps) (2021) [Java, JavaScript, Node.js, React]
-- [sicomEAFIT/CampusMovil-EAFIT](https://github.com/sicomEAFIT/CampusMovil-EAFIT) (2015) [Objective-C, Java, Ruby]
 
 
 ## Screenshots (pending)
@@ -120,7 +107,25 @@ To deploy this project run
 Any additional information goes here
 
 
-## Acknowledgements
+### Related projects
+
+- [Adrephos/EAFIT-maps](https://github.com/Adrephos/EAFIT-maps) (2021) [Java, JavaScript, Node.js, React]
+- [sicomEAFIT/CampusMovil-EAFIT](https://github.com/sicomEAFIT/CampusMovil-EAFIT) (2015) [Objective-C, Java, Ruby]
+
+
+### Contributing
+
+Since this is the authors coursework, we won't review pull requests.
+
+### Feedback
+
+Create an issue and @ us (I doubt anyone will ever do this).
+
+### License
+
+
+
+### Acknowledgements
 
  - [Awesome Readme Templates](https://awesomeopensource.com/project/elangosundar/awesome-README-templates)
  - [Awesome README](https://github.com/matiassingers/awesome-readme)
