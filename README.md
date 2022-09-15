@@ -3,19 +3,14 @@
 
 A Python application to get directions from A to B on EAFIT's main campus.
 
-# Requirements (pending)
+## Authors
 
-## Roadmap
+- [Luis M. Torres-Villegas](https://www.github.com/LuisForPresident)
+- [Miguel Suárez-Obando](https://www.github.com/MSO2023)
 
-- [ ] Additional browser support
+# Software requirements
 
-- [ ] Add more integrations
-
-
-## Features
-
-- [ ] Add real features and remove placeholders
-
+See the [wiki page](https://github.com/LuisForPresident/eafit-uni-map/wiki/Requisitos-de-software).
 
 ## Demo
 
@@ -49,13 +44,6 @@ Start the server
 ```
 
 
-## Authors
-
-- [Luis M. Torres-Villegas](https://www.github.com/LuisForPresident)
-- [Miguel Suárez-Obando](https://www.github.com/MSO2023)
-
-
-
 
 
 ## Screenshots (pending)
@@ -65,7 +53,7 @@ Start the server
 
 ## Tech Stack
 
-**Client:** Python (maybe)
+**Client:** Python, PyQt
 
 
 ## FAQ (pending)
@@ -93,15 +81,6 @@ Answer 2
 What did you learn while building this project? What challenges did you face and how did you overcome them?
 
 
-## Deployment
-
-To deploy this project run
-
-```bash
-  npm run deploy
-```
-
-
 ## Appendix
 
 Any additional information goes here
@@ -123,7 +102,7 @@ Create an issue and @ us (I doubt anyone will ever do this).
 
 ### License
 
-
+Pending…
 
 ### Acknowledgements
 
