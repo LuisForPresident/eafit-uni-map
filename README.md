@@ -1,23 +1,24 @@
 
 # EAFIT University Map
 
-A Python application to get directions from A to B on EAFIT's main campus.
+A Python application to get directions from A to B on EAFIT's main campus based on "landmarks", so to speak.
 
 ## Authors
 
 - [Luis M. Torres-Villegas](https://www.github.com/LuisForPresident)
 - [Miguel Suárez-Obando](https://www.github.com/MSO2023)
 
-# Software requirements
+## Why
 
-See the [wiki page](https://github.com/LuisForPresident/eafit-uni-map/wiki/Requisitos-de-software).
+Project for the first-semester course "Principles of Software Development" (ST0243) taught at EAFIT University (Medellín, Colombia) by prof Paola Vallejo.
 
-## Demo
+
+## Demo (pending)
 
 Insert gif or link to demo
 
 
-## Run Locally
+## Run Locally (pending)
 
 Clone the project
 
@@ -51,31 +52,6 @@ Start the server
 ![App Screenshot]()
 
 
-## Tech Stack
-
-**Client:** Python, PyQt
-
-
-## FAQ (pending)
-
-#### Question 1
-
-Answer 1
-
-#### Question 2
-
-Answer 2
-
-## Color Reference (pending)
-
-| Color             | Hex                                                                |
-| ----------------- | ------------------------------------------------------------------ |
-| Example Color | ![#0a192f](https://via.placeholder.com/10/0a192f?text=+) #0a192f |
-| Example Color | ![#f8f8f8](https://via.placeholder.com/10/f8f8f8?text=+) #f8f8f8 |
-| Example Color | ![#00b48a](https://via.placeholder.com/10/00b48a?text=+) #00b48a |
-| Example Color | ![#00d1a0](https://via.placeholder.com/10/00b48a?text=+) #00d1a0 |
-
-
 ## Lessons Learned
 
 What did you learn while building this project? What challenges did you face and how did you overcome them?
@@ -83,14 +59,14 @@ What did you learn while building this project? What challenges did you face and
 
 ## Appendix
 
-Any additional information goes here
+### Software requirements
 
+See the [wiki page](https://github.com/LuisForPresident/eafit-uni-map/wiki/Requisitos-de-software).
 
 ### Related projects
 
 - [Adrephos/EAFIT-maps](https://github.com/Adrephos/EAFIT-maps) (2021) [Java, JavaScript, Node.js, React]
 - [sicomEAFIT/CampusMovil-EAFIT](https://github.com/sicomEAFIT/CampusMovil-EAFIT) (2015) [Objective-C, Java, Ruby]
-
 
 ### Contributing
 
@@ -102,10 +78,4 @@ Create an issue and @ us (I doubt anyone will ever do this).
 
 ### License
 
-Pending…
-
-### Acknowledgements
-
- - [Awesome Readme Templates](https://awesomeopensource.com/project/elangosundar/awesome-README-templates)
- - [Awesome README](https://github.com/matiassingers/awesome-readme)
- - [How to write a Good readme](https://bulldogjob.com/news/449-how-to-write-a-good-readme-for-your-github-project)
+We were explicitly told not to license this repo.
