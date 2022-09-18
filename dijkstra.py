@@ -1,3 +1,4 @@
+import collections
 import heapq  # https://docs.python.org/3/library/heapq.html
 import csv  # https://docs.python.org/3/library/csv.html
 from collections import deque
@@ -7,19 +8,23 @@ from collections import deque
 # Return input csv file of edge list as an array
 def parse_csv_input(file_name):
     edge_list = []
+
     with open(file_name) as csv_file:
         parsed_csv = csv.reader(csv_file, delimiter=";")
         for edge in parsed_csv:
             edge_list.append(edge[0].split(","))
+
     return edge_list
 
 
 # Return graph dictionary with placeholder keys
 def initialize_graph_keys(edge_list):
     graph_dict = {}
+
     for edge in edge_list:
         if edge not in graph_dict:
             graph_dict[edge] = []
+
     return graph_dict
 
 
@@ -47,34 +52,31 @@ def calculate_edge_distances(graph_dict, initial_node):
                 if (node not in path) or (current_weight+weight
                                           < path[node][1]):
                     path[node] = (current_node, weight)
+
     return distance, path
 
 
-# Print path as a sequential string joined by "->" symbol
+# Return directions as a deque
 def show_path(path, initial_node, final_node):
     directions = deque(final_node)
     search = path[final_node][0]
+
     while search in path:
         directions.appendleft(search)
         search = path[search][0]
     directions.appendleft(initial_node)
-    print("->".join(directions))
+    return directions
 
 
-def main():
-    file_name = input("File path: ")
+def get_shortest_path(initial_node, final_node):
+    file_name = "example.csv"
     edge_list = parse_csv_input(file_name)
     graph = initialize_graph_keys(edge_list[0])
     for edge in edge_list[1:]:
         add_graph_edges(graph, edge[0], edge[1], float(edge[2]))
 
-    initial_node = input("Initial node: ").upper()
-    final_node = input("Final node: ").upper()
-
     distance_dict = calculate_edge_distances(graph, initial_node)
     path = distance_dict[1]
     if final_node in path:
-        show_path(path, initial_node, final_node)
-
-
-main()
+        deque_directions = show_path(path, initial_node, final_node)
+    return deque_directions
