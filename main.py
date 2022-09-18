@@ -1,27 +1,29 @@
-from pick import *
-from dijkstra import *  # for the main algorithm
 import csv
+from pick import *
+from dijkstra import *
+
 
 def welcome_user():
     print("\nEAFIT University Map - 2022\nLuis M. Torres-Villegas & Miguel Suárez-Obando\nhttps://github.com/LuisForPresident/eafit-uni-map/\n")
     print("Welcome! Get directions based on some landmarks on campus.")
 
-    # name : string = input("What's your name: ")
-    # print(f"Hello, {name}!")
+
+def create_options_list(filename):
+    with open(filename) as csv_file:
+        parsed_csv = csv.reader(csv_file)
+        first_row = next(parsed_csv)
+        first_row[-1] = first_row[-1].replace(';', '')
+    return first_row
 
 
-# pending
-def create_options():
-    with open("example.csv") as csv_file:
-        parsed_csv = csv.reader(csv_file, delimiter=";", line_num = 0)
-    print(parsed_csv)
+def pick_locations(options, first):
+    if first == True:
+        title = "Where are you now?"
+    else:
+        title = "Where are you going?"
 
-
-def pick_initial_location():
-    title = "Where are you now (that I need you)?: "
-    options = ['Bloque 18', 'Bloque 29', 'Biblioteca', 'Cafetería']
-    option, index = pick(options, title)
-    print(option, index)
+    location = pick(options, title, indicator='->')[0]
+    return location
 
 
 def get_initial_location():
@@ -41,16 +43,16 @@ def print_directions(directions):
 
 
 def __init__():
+    filename = "example.csv"
     welcome_user()
-    pick_initial_location()
-    initial_location = get_initial_location()
-    # print(f"\nThe user is at {initial_location} and is going to {final_location}\n")
+    start_message = input("Are you kind of cool? [Y/n] ")  # will delete later, it's just so that the user sees the welcome message
 
-    if (initial_location == final_location):
-        exit()
-    else:
-        print_directions(get_shortest_path(initial_location, final_location))
-    
+    # This itself could be a function
+    options = create_options_list(filename)
+    initial_location = pick_locations(options, True)
+    options.remove(initial_location)
+    final_location = pick_locations(options, False)
+    print(f"\nThe user is at {initial_location} and is going to {final_location}\n")
 
 
 __init__()
