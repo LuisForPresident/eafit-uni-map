@@ -56,6 +56,13 @@ Start the server
 
 What did you learn while building this project? What challenges did you face and how did you overcome them?
 
+1. GUIs are harder to create than they look.
+2. Virtual environments are pretty useful.
+3. Use LiveShare to code collaboratively.
+4. Check your terminal config files.
+5. Don't overdo it with the folders.
+6. `CITATION.cff` is a thing
+7. `brew update --auto-update` shouldn't exist.
 
 ## Appendix
 

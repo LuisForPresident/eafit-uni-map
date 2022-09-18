@@ -1,4 +1,3 @@
-import collections
 import heapq  # https://docs.python.org/3/library/heapq.html
 import csv  # https://docs.python.org/3/library/csv.html
 from collections import deque
