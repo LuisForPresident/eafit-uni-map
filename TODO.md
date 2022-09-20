@@ -6,3 +6,6 @@
 - Que se necesite sacar otro destino
 - Que solo hayan dos pasos entonces los casos especiales para imprimir fallen
 - Que le den sitios que no esten (resultan en `KeyError`)
+
+**2022-09-19**:
+- ValueError: options should not be an empty list
