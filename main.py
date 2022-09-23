@@ -1,36 +1,98 @@
 import csv
-from venv import create
+import logging
 from pick import *
 from dijkstra import *
+# from favorites import add_favorites
+
+# Declare global paths for csv files
+graph_path = 'example.csv'
+favorites_path = 'favorites.csv'
+time_and_distance_path = 'time_and_distance.csv'
 
 
 def welcome_user():
-    options = ['Go!', 'Edit favorites']
+    options = ['Travel', 'Edit favorites']
     title = '\nEAFIT University Map - 2022\n'\
             'Luis M. Torres-Villegas & Miguel Suárez-Obando\n'\
             'https://github.com/LuisForPresident/eafit-uni-map/\n\n'\
             'Welcome! Get directions based on some landmarks on campus.'
-    return pick(options, title, indicator='->')[1]
+    decision = pick(options, title, indicator='->')[1]  # Get the index
+    return bool(decision == 0)
+    # if decision == 0:  # 'Travel'
+    #     return True
+    # else:
+    #     return False  # 'Edit favorites'
+    # https://docs.python.org/3/library/functions.html#bool
 
 
-def pick_locations(options, first):
-    if first is True:
-        title = 'Where are you now?'
-    else:
-        title = 'Where are you going?'
-
+def get_location(options: list):
+    title = 'Select your current location:'
     location = pick(options, title, indicator='->')[0]
     return location
 
 
-def add_favorites(favorites_path):
+def choose_from_favorites():
+    options = ['From all options', 'From favorites']
+    title = 'Choose destination from:'
+    decision = pick(options, title, indicator='->')[1]  # Get the index
+    if decision == 0:
+        return False
+    else:
+        return True
+
+
+def get_destination(options: list, location: str):
+    if location in options:  # For the favorites special case
+        options.remove(location)  # Destination must not be the location
+    title = 'Select your destination:'
+    destination = pick(options, title, indicator='->')[0]
+    return destination
+
+
+def create_options_list():
+    with open(graph_path) as csv_file:
+        parsed_csv = csv.reader(csv_file)
+        first_row = next(parsed_csv)
+        first_row[-1] = first_row[-1].replace(';', '')
+    return first_row
+
+
+def create_favorites_list():
+    with open(favorites_path, mode='r') as favorites:
+        try:
+            already_favorites = next(csv.reader(favorites, delimiter=','))
+            return already_favorites
+        except StopIteration:
+            choose_from_favorites()
+
+
+def print_directions(directions: deque):
+    options = ['Go to main menu', 'Quit program']
+    steps = []
+    for step, place in enumerate(directions, 1):
+        steps.append(str(step) + '. Go to ' + place)
+    title = '\n'.join(steps) + '\n\n100 steps\n50 secs walking or 40 secs biking'
+    decision = pick(options, title)
+
+
+def travel():
+    location = get_location(create_options_list())
+    from_favorites = choose_from_favorites()
+    if from_favorites is False:
+        destination_list = create_options_list()
+    else:
+        destination_list = create_favorites_list()
+    destination = get_destination(destination_list, location)
+    print_directions(get_shortest_path(location, destination))
+
+def add_favorites():
     with open(favorites_path, mode='r') as favorites:
         try:
             already_favorites = next(csv.reader(favorites, delimiter=','))
         except StopIteration:
             already_favorites = []
-    print(already_favorites)
-    all_places = create_options_list('example.csv')
+    logging.debug(already_favorites)
+    all_places = create_options_list()
     for place in all_places:
         for favorite in already_favorites:
             if favorite in all_places:
@@ -44,21 +106,26 @@ def add_favorites(favorites_path):
         favorites_to_add = []
         for favorite in favorites_from_pick:
             favorites_to_add.append(favorite[0])
-        
+
         favorites_to_add.extend(already_favorites)  # so it doesn't overwrite the existing favorites
 
         with open(favorites_path, mode='w') as final_favorites:
             csv.writer(final_favorites, delimiter=',').writerow(favorites_to_add)
 
 
-
+def remove_favorites():
+    with open(favorites_path, mode='r') as favorites:
+        try:
+            already_favorites = next(csv.reader(favorites, delimiter=','))
+        except StopIteration:
+            welcome_user()
 
 
 def edit_favorites(graph_path, options_another):
     title = 'Marca tus destinos favoritos (ESPACIO para marcar, ENTER para confirmar):'
     primera_vez = input('Primera vez? [Y/n]  ')
     if primera_vez == 'Y':
-        options = create_options_list(graph_path)
+        options = create_options_list()
     else:
         options = options_another
     selected = pick(options, title, multiselect=True, min_selection_count=0)
@@ -71,47 +138,23 @@ def edit_favorites(graph_path, options_another):
 def change_favorites(list):
     with open('favorites.csv', mode='w') as csv_file:
         favorite_changer = csv.writer(csv_file, delimiter=',')
-        favorite_changer.writerow(list) 
+        favorite_changer.writerow(list)
 
-def read_favorites():
+
+def read_favorites(favorites_path):
     with open('favorites.csv', mode='r') as csv_file:
         favorite_reader = csv.reader(csv_file, delimiter=',')
         options = next(favorite_reader)
     return options
 
 
-def create_options_list(graph_path):
-    with open(graph_path) as csv_file:
-        parsed_csv = csv.reader(csv_file)
-        first_row = next(parsed_csv)
-        first_row[-1] = first_row[-1].replace(';', '')
-    return first_row
+# Pending: Learn what __main__() and __init__() mean
+def procedure():
+    decision = welcome_user()
+    if decision is True:
+        travel()
+    else:
+        add_favorites()
 
 
-
-
-
-def print_directions(directions):
-    # pendiente:
-    for place in directions:
-        print('Ve al nodo', place)
-
-
-def __init__():
-    graph_path = 'example.csv'
-    favorites_path = 'favorites.csv'
-    time_and_distance_path = 'time_and_distance.csv'
-    welcome_user()
-    the_list = edit_favorites(graph_path, read_favorites)
-    change_favorites(the_list)
-    # This itself could be a function
-    options = create_options_list(graph_path, read_favorites(graph_path))
-    initial_location = pick_locations(options, True)
-    options.remove(initial_location)
-    final_location = pick_locations(options, False)
-    print(f'''\nThe user is at {initial_location} and is going to {final_location}\n''')
-
-
-# __init__()
-
-add_favorites('favorites.csv')
+procedure()
