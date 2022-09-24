@@ -9,3 +9,6 @@
 
 **2022-09-19**:
 - ValueError: options should not be an empty list
+
+**2022-09-23**:
+- Add acknowledgement for wong2's `pick` module

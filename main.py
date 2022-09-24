@@ -2,15 +2,17 @@ import csv
 import logging
 from pick import *
 from dijkstra import *
-# from favorites import add_favorites
 
-# Declare global paths for csv files
+""" Declare global paths for csv files
+It's more efficient compared with having
+an argument in every other function
+and having to pass the path every time """
 graph_path = 'example.csv'
 favorites_path = 'favorites.csv'
 time_and_distance_path = 'time_and_distance.csv'
 
 
-def welcome_user():
+def choose_at_start_menu():
     options = ['Travel', 'Edit favorites']
     title = '\nEAFIT University Map - 2022\n'\
             'Luis M. Torres-Villegas & Miguel Suárez-Obando\n'\
@@ -67,12 +69,13 @@ def create_favorites_list():
 
 
 def print_directions(directions: deque):
-    options = ['Go to main menu', 'Quit program']
+    options = ['Go back to main menu', 'Quit program']
     steps = []
     for step, place in enumerate(directions, 1):
         steps.append(str(step) + '. Go to ' + place)
-    title = '\n'.join(steps) + '\n\n100 steps\n50 secs walking or 40 secs biking'
-    decision = pick(options, title)
+    title = '\n'.join(steps) + '\n\nAAA steps\nBB secs walking or CC secs biking (pending)'
+    decision = pick(options, title)[1]  # Get index
+    return decision
 
 
 def travel():
@@ -83,7 +86,12 @@ def travel():
     else:
         destination_list = create_favorites_list()
     destination = get_destination(destination_list, location)
-    print_directions(get_shortest_path(location, destination))
+    decision = print_directions(get_shortest_path(location, destination))
+    if decision == 0:
+        procedure()
+    else:
+        exit()
+
 
 def add_favorites():
     with open(favorites_path, mode='r') as favorites:
@@ -98,9 +106,9 @@ def add_favorites():
             if favorite in all_places:
                 all_places.remove(favorite)
     try:
-        favorites_from_pick = pick(all_places, 'What favorites do you want to add (SPACE AND RETURN)', multiselect=True)
+        favorites_from_pick = pick(all_places, 'Select favorites to add with SPACE', multiselect=True)
     except ValueError:
-        welcome_user()
+        choose_at_start_menu()
         # pending: maybe the function itself should not be available if this error occurs?
     else:
         favorites_to_add = []
@@ -118,10 +126,10 @@ def remove_favorites():
         try:
             already_favorites = next(csv.reader(favorites, delimiter=','))
         except StopIteration:
-            welcome_user()
+            choose_at_start_menu()
 
 
-def edit_favorites(graph_path, options_another):
+def edit_favorites(options_another):
     title = 'Marca tus destinos favoritos (ESPACIO para marcar, ENTER para confirmar):'
     primera_vez = input('Primera vez? [Y/n]  ')
     if primera_vez == 'Y':
@@ -150,8 +158,7 @@ def read_favorites(favorites_path):
 
 # Pending: Learn what __main__() and __init__() mean
 def procedure():
-    decision = welcome_user()
-    if decision is True:
+    if choose_at_start_menu() is True:
         travel()
     else:
         add_favorites()
