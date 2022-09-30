@@ -1,12 +1,8 @@
 import csv
-import logging
 from pick import *
 from dijkstra import *
 
-""" Declare global paths for csv files
-It's more efficient compared with having
-an argument in every other function
-and having to pass the path every time """
+# Declare global paths for csv files
 graph_path = 'example.csv'
 favorites_path = 'favorites.csv'
 time_and_distance_path = 'time_and_distance.csv'
@@ -34,7 +30,7 @@ def get_location(options: list):
 
 
 def choose_from_favorites():
-    options = ['From all options', 'From favorites']
+    options = ['All options', 'Favorites']
     title = 'Choose destination from:'
     decision = pick(options, title, indicator='->')[1]  # Get the index
     if decision == 0:
@@ -46,6 +42,7 @@ def choose_from_favorites():
 def get_destination(options: list, location: str):
     if location in options:  # For the favorites special case
         options.remove(location)  # Destination must not be the location
+    options.sort()
     title = 'Select your destination:'
     destination = pick(options, title, indicator='->')[0]
     return destination
@@ -99,12 +96,12 @@ def add_favorites():
             already_favorites = next(csv.reader(favorites, delimiter=','))
         except StopIteration:
             already_favorites = []
-    logging.debug(already_favorites)
     all_places = create_options_list()
-    for place in all_places:
-        for favorite in already_favorites:
-            if favorite in all_places:
-                all_places.remove(favorite)
+
+    for favorite in already_favorites:
+        if favorite in all_places:
+            all_places.remove(favorite)
+
     try:
         favorites_from_pick = pick(all_places, 'Select favorites to add with SPACE', multiselect=True)
     except ValueError:
@@ -115,7 +112,9 @@ def add_favorites():
         for favorite in favorites_from_pick:
             favorites_to_add.append(favorite[0])
 
+        # sort later?
         favorites_to_add.extend(already_favorites)  # so it doesn't overwrite the existing favorites
+        favorites_to_add.sort()
 
         with open(favorites_path, mode='w') as final_favorites:
             csv.writer(final_favorites, delimiter=',').writerow(favorites_to_add)
@@ -129,18 +128,51 @@ def remove_favorites():
             choose_at_start_menu()
 
 
-def edit_favorites(options_another):
-    title = 'Marca tus destinos favoritos (ESPACIO para marcar, ENTER para confirmar):'
-    primera_vez = input('Primera vez? [Y/n]  ')
-    if primera_vez == 'Y':
-        options = create_options_list()
+def is_there_at_least_one_favorite():
+    with open(favorites_path, mode='r') as favorites:
+        try:
+            next(csv.reader(favorites, delimiter=','))
+            return True
+        except StopIteration:
+            return False
+
+
+def is_there_at_least_one_unfavorite():
+    with open(favorites_path, mode='r') as favorites:
+        try:
+            already_favorites = next(csv.reader(favorites, delimiter=','))
+        except StopIteration:
+            return True
+    all_places = create_options_list()
+    for favorite in already_favorites:
+        if favorite in all_places:
+            all_places.remove(favorite)
+    if len(all_places) == 0:
+        return False
     else:
-        options = options_another
-    selected = pick(options, title, multiselect=True, min_selection_count=0)
-    new_list = []
-    for option in selected:  # implement later with map()
-        new_list.append(option[0])
-    return new_list
+        return True
+
+
+def edit_favorites():
+    options = []
+
+    if is_there_at_least_one_unfavorite():
+        options.append('Add')
+    if is_there_at_least_one_favorite():
+        options.append('Remove')
+    # options.append('Add') if is_there_at_least_one_unfavorite() else None
+    # options.append('Remove') if is_there_at_least_one_favorite() else None
+
+    title = 'Edit favorites:'
+    decision = pick(options, title)[0]  # In this case, get the text
+    if decision == 'Add':
+        add_favorites()
+
+    # selected = pick(options, title, multiselect=True, min_selection_count=0)
+    # new_list = []
+    # for option in selected:  # implement later with map()
+    #     new_list.append(option[0])
+    # return new_list
 
 
 def change_favorites(list):
@@ -161,7 +193,7 @@ def procedure():
     if choose_at_start_menu() is True:
         travel()
     else:
-        add_favorites()
+        edit_favorites()
 
 
 procedure()
