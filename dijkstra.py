@@ -1,6 +1,7 @@
 import heapq  # https://docs.python.org/3/library/heapq.html
 import csv  # https://docs.python.org/3/library/csv.html
 from collections import deque
+from typing import final
 # https://docs.python.org/3/library/collections.html?highlight=deque#deque-objects
 
 
@@ -67,7 +68,7 @@ def show_path(path, initial_node, final_node):
     return directions
 
 
-def get_shortest_path(initial_node, final_node):
+def get_shortest_path_and_distance(initial_node: str, final_node: str):    
     file_name = "example.csv"
     edge_list = parse_csv_input(file_name)
     graph = initialize_graph_keys(edge_list[0])
@@ -75,7 +76,8 @@ def get_shortest_path(initial_node, final_node):
         add_graph_edges(graph, edge[0], edge[1], float(edge[2]))
 
     distance_dict = calculate_edge_distances(graph, initial_node)
+    distance = int(distance_dict[0][final_node])
     path = distance_dict[1]
     if final_node in path:
         deque_directions = show_path(path, initial_node, final_node)
-    return deque_directions
+    return deque_directions, distance
