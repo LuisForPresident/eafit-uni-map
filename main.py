@@ -90,7 +90,7 @@ def travel():
         exit()
 
 
-def add_favorites():
+def add_favorites():   
     with open(favorites_path, mode='r') as favorites:
         try:
             already_favorites = next(csv.reader(favorites, delimiter=','))
@@ -131,8 +131,10 @@ def remove_favorites():
 def is_there_at_least_one_favorite():
     with open(favorites_path, mode='r') as favorites:
         try:
-            next(csv.reader(favorites, delimiter=','))
-            return True
+            if next(csv.reader(favorites, delimiter=',')):
+                return True
+            else:
+                return False
         except StopIteration:
             return False
 
