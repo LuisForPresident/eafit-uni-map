@@ -120,12 +120,24 @@ def add_favorites():
             csv.writer(final_favorites, delimiter=',').writerow(favorites_to_add)
 
 
-def remove_favorites():
+def remove_favorites():   
     with open(favorites_path, mode='r') as favorites:
         try:
             already_favorites = next(csv.reader(favorites, delimiter=','))
         except StopIteration:
-            choose_at_start_menu()
+            already_favorites = []
+    try:
+        favorites_from_pick = pick(already_favorites, 'Select favorites to remove with SPACE', multiselect=True)[0]
+    except ValueError:
+        choose_at_start_menu()
+        # pending: maybe the function itself should not be available if this error occurs?
+    else:
+        for favorite in favorites_from_pick:
+            if favorite in already_favorites:
+                already_favorites.remove(favorite)
+        already_favorites.sort()
+        with open(favorites_path, mode='w') as final_favorites:
+            csv.writer(final_favorites, delimiter=',').writerow(already_favorites)
 
 
 def is_there_at_least_one_favorite():
@@ -169,6 +181,8 @@ def edit_favorites():
     decision = pick(options, title)[0]  # In this case, get the text
     if decision == 'Add':
         add_favorites()
+    else:
+        remove_favorites()
 
     # selected = pick(options, title, multiselect=True, min_selection_count=0)
     # new_list = []
