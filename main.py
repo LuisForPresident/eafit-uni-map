@@ -65,12 +65,13 @@ def create_favorites_list():
             choose_from_favorites()
 
 
-def print_directions(directions: deque):
+def print_directions(stuff):
+    directions, distance = stuff
     options = ['Go back to main menu', 'Quit program']
     steps = []
     for step, place in enumerate(directions, 1):
         steps.append(str(step) + '. Go to ' + place)
-    title = '\n'.join(steps) + '\n\nAAA steps\nBB secs walking or CC secs biking (pending)'
+    title = '\n'.join(steps) + '\n\n' + str(distance) + ' steps \nBB secs walking or CC secs biking (pending)'
     decision = pick(options, title)[1]  # Get index
     return decision
 
@@ -83,7 +84,7 @@ def travel():
     else:
         destination_list = create_favorites_list()
     destination = get_destination(destination_list, location)
-    decision = print_directions(get_shortest_path(location, destination))
+    decision = print_directions(get_shortest_path_and_distance(location, destination))
     if decision == 0:
         procedure()
     else:
