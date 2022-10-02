@@ -192,6 +192,7 @@ def edit_favorites():
         add_favorites()
     else:
         remove_favorites()
+    choose_at_start_menu()
 
     # selected = pick(options, title, multiselect=True, min_selection_count=0)
     # new_list = []
