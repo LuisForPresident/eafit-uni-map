@@ -109,7 +109,7 @@ def add_favorites():
             all_places.remove(favorite)
 
     try:
-        favorites_from_pick = pick(all_places, 'Select favorites to add with SPACE', multiselect=True)
+        favorites_from_pick = pick(all_places, 'Select favorites to add with SPACE', multiselect=True, min_selection_count=1)
     except ValueError:
         choose_at_start_menu()
         # pending: maybe the function itself should not be available if this error occurs?
@@ -133,7 +133,7 @@ def remove_favorites():
         except StopIteration:
             already_favorites = []
     try:
-        favorites_from_pick = pick(already_favorites, 'Select favorites to remove with SPACE', multiselect=True)[0]
+        favorites_from_pick = pick(already_favorites, 'Select favorites to remove with SPACE', multiselect=True, min_selection_count=1)[0]
     except ValueError:
         choose_at_start_menu()
         # pending: maybe the function itself should not be available if this error occurs?
