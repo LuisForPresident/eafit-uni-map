@@ -1,4 +1,5 @@
 import csv
+import math
 from pick import *
 from dijkstra import *
 
@@ -71,6 +72,10 @@ def print_directions(stuff):
     steps = []
     for step, place in enumerate(directions, 1):
         steps.append(str(step) + '. Go to ' + place)
+    # 1 step = 0.762 meters
+    # (src: https://hextobinary.com/unit/length/from/step/to/meter)
+    distance /= 0.762
+    distance = math.ceil(distance)
     title = '\n'.join(steps) + '\n\n' + str(distance) + ' steps \nBB secs walking or CC secs biking (pending)'
     decision = pick(options, title)[1]  # Get index
     return decision
