@@ -99,7 +99,7 @@ def travel():
         exit()
 
 
-def add_favorites():   
+def add_favorites():
     with open(favorites_path, mode='r') as favorites:
         try:
             already_favorites = next(csv.reader(favorites, delimiter=','))
@@ -115,13 +115,11 @@ def add_favorites():
         favorites_from_pick = pick(all_places, 'Select favorites to add with SPACE', multiselect=True, min_selection_count=1)
     except ValueError:
         choose_at_start_menu()
-        # pending: maybe the function itself should not be available if this error occurs?
+        # TODO maybe the function itself should not be available if this error occurs?
     else:
         favorites_to_add = []
         for favorite in favorites_from_pick:
             favorites_to_add.append(favorite[0])
-
-        # sort later?
         favorites_to_add.extend(already_favorites)  # so it doesn't overwrite the existing favorites
         favorites_to_add.sort()
 
@@ -129,19 +127,27 @@ def add_favorites():
             csv.writer(final_favorites, delimiter=',').writerow(favorites_to_add)
 
 
-def remove_favorites():   
+def remove_favorites():
     with open(favorites_path, mode='r') as favorites:
         try:
             already_favorites = next(csv.reader(favorites, delimiter=','))
         except StopIteration:
             already_favorites = []
     try:
-        favorites_from_pick = pick(already_favorites, 'Select favorites to remove with SPACE', multiselect=True, min_selection_count=1)[0]
+        favorites_from_pick = pick(already_favorites, 'Select favorites to remove with SPACE', multiselect=True, min_selection_count=1)
     except ValueError:
         choose_at_start_menu()
-        # pending: maybe the function itself should not be available if this error occurs?
+        # TODO maybe the function itself should not be available if this error occurs?
     else:
+        # extract the A,B,C values (etc) from the list of tuples
+        # BUG 
+        favorites_to_remove = []
         for favorite in favorites_from_pick:
+            favorites_to_remove.append(favorite[0])
+        # favorites_to_remove = list(list(zip(*favorites_from_pick))[0])
+        print(favorites_to_remove)
+
+        for favorite in favorites_to_remove:
             if favorite in already_favorites:
                 already_favorites.remove(favorite)
         already_favorites.sort()
@@ -192,7 +198,7 @@ def edit_favorites():
         add_favorites()
     else:
         remove_favorites()
-    choose_at_start_menu()
+    procedure()
 
     # selected = pick(options, title, multiselect=True, min_selection_count=0)
     # new_list = []
@@ -214,7 +220,7 @@ def read_favorites(favorites_path):
     return options
 
 
-# Pending: Learn what __main__() and __init__() mean
+# TODO Learn what __main__() and __init__() mean
 def procedure():
     if choose_at_start_menu() is True:
         travel()
