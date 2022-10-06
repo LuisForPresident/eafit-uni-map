@@ -1,7 +1,6 @@
 import heapq  # https://docs.python.org/3/library/heapq.html
 import csv  # https://docs.python.org/3/library/csv.html
 from collections import deque
-from typing import final
 # https://docs.python.org/3/library/collections.html?highlight=deque#deque-objects
 
 
@@ -44,7 +43,6 @@ def calculate_edge_distances(graph_dict, initial_node):
     heapq.heappush(least_distance_nodes, (0, initial_node))  # Priority queue
     while least_distance_nodes:
         current_weight, current_node = heapq.heappop(least_distance_nodes)
-        if (distance[current_node] == 'infinity'):
             distance[current_node] = current_weight
             for (weight, node) in graph_dict[current_node]:
                 heapq.heappush(least_distance_nodes,
@@ -58,8 +56,9 @@ def calculate_edge_distances(graph_dict, initial_node):
 
 # Return directions as a deque
 def show_path(path, initial_node, final_node):
-    directions = deque(final_node)
-    search = path[final_node][0]
+    directions = deque()
+    directions.append(final_node)
+    search = path[final_node][0]  # Avoids conversion to deque from splitting str into a list
 
     while search in path:
         directions.appendleft(search)
@@ -68,8 +67,6 @@ def show_path(path, initial_node, final_node):
     return directions
 
 
-def get_shortest_path_and_distance(initial_node: str, final_node: str):    
-    file_name = "example.csv"
     edge_list = parse_csv_input(file_name)
     graph = initialize_graph_keys(edge_list[0])
     for edge in edge_list[1:]:
