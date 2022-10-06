@@ -43,6 +43,7 @@ def calculate_edge_distances(graph_dict, initial_node):
     heapq.heappush(least_distance_nodes, (0, initial_node))  # Priority queue
     while least_distance_nodes:
         current_weight, current_node = heapq.heappop(least_distance_nodes)
+        if distance[current_node] == 'infinity':
             distance[current_node] = current_weight
             for (weight, node) in graph_dict[current_node]:
                 heapq.heappush(least_distance_nodes,
@@ -67,6 +68,8 @@ def show_path(path, initial_node, final_node):
     return directions
 
 
+def get_shortest_path_and_distance(initial_node: str, final_node: str):
+    file_name = "prototype.csv"
     edge_list = parse_csv_input(file_name)
     graph = initialize_graph_keys(edge_list[0])
     for edge in edge_list[1:]:
