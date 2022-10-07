@@ -2,6 +2,8 @@ import csv
 
 from pick import pick
 
+import options
+
 favorites_path = 'favorites.csv'
 
 
@@ -30,7 +32,7 @@ def add_favorites():
             already_favorites = next(csv.reader(favorites, delimiter=','))
         except StopIteration:
             already_favorites = []
-    all_places = create_options_list()
+    all_places = options.create_options()
 
     for favorite in already_favorites:
         if favorite in all_places:
@@ -39,10 +41,7 @@ def add_favorites():
     try:
         favorites_from_pick = pick(all_places, 'Select favorites to add with SPACE', multiselect=True,
                                    min_selection_count=1)
-    except ValueError:
-        choose_at_start_menu()
-        # TODO maybe the function itself should not be available if this error occurs?
-    else:
+    finally:
         favorites_to_add = []
         for favorite in favorites_from_pick:
             favorites_to_add.append(favorite[0])
@@ -62,17 +61,12 @@ def remove_favorites():
     try:
         favorites_from_pick = pick(already_favorites, 'Select favorites to remove with SPACE', multiselect=True,
                                    min_selection_count=1)
-    except ValueError:
-        choose_at_start_menu()
-        # TODO maybe the function itself should not be available if this error occurs?
-    else:
+    finally:
         # extract the A,B,C values (etc.) from the list of tuples
-        # BUG
         favorites_to_remove = []
         for favorite in favorites_from_pick:
             favorites_to_remove.append(favorite[0])
         # favorites_to_remove = list(list(zip(*favorites_from_pick))[0])
-        print(favorites_to_remove)
 
         for favorite in favorites_to_remove:
             if favorite in already_favorites:
@@ -99,7 +93,7 @@ def is_there_at_least_one_not_favorite():
             already_favorites = next(csv.reader(favorites, delimiter=','))
         except StopIteration:
             return True
-    all_places = create_options_list()
+    all_places = options.create_options()
     for favorite in already_favorites:
         if favorite in all_places:
             all_places.remove(favorite)
@@ -121,28 +115,3 @@ def read_favorites(favorites_path):
         favorite_reader = csv.reader(csv_file, delimiter=',')
         options = next(favorite_reader)
     return options
-
-
-def edit_favorites():
-    options = []
-
-    if is_there_at_least_one_not_favorite():
-        options.append('Add')
-    if is_there_at_least_one_favorite():
-        options.append('Remove')
-    # options.append('Add') if is_there_at_least_one_not_favorite() else None
-    # options.append('Remove') if is_there_at_least_one_favorite() else None
-
-    title = 'Edit favorites:'
-    decision = pick(options, title)[0]  # In this case, get the text
-    if decision == 'Add':
-        add_favorites()
-    else:
-        remove_favorites()
-    procedure()
-
-    # selected = pick(options, title, multiselect=True, min_selection_count=0)
-    # new_list = []
-    # for option in selected:  # implement later with map()
-    #     new_list.append(option[0])
-    # return new_list
