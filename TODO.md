@@ -8,7 +8,13 @@
 - Que le den sitios que no esten (resultan en `KeyError`)
 
 **2022-09-19**:
-- ValueError: options should not be an empty list
+- `ValueError: options should not be an empty list`
 
 **2022-09-23**:
 - Add acknowledgement for wong2's `pick` module
+
+2022-10-03:
+- `pydevd warning: Computing repr of special variables () was slow (took 2.57s)`
+- `invalid literal for int() with base 10: 'infinity'`
+    - initial_node: 'C'
+    - final_node: 'A'
