@@ -17,7 +17,7 @@ time_and_distance_path = 'time_and_distance.csv'
 # TODO Learn what __main__() and __init__() mean
 
 def main():
-    if start.travel() is True:
+    if start.select_travel() is True:
         # Get the location
         location_options = create_options()
         location = input.get_location(location_options)
