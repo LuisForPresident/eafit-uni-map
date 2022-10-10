@@ -32,7 +32,13 @@ Los escribimos con esta estructura:
 
 * P3: El sistema debe calcular el tiempo de recorrido del usuario caminando del punto inicial (E1) al final (E2).
 
+<!-- 
 * P4: El sistema debe calcular el tiempo de recorrido del usuario en bicicleta del punto inicial (E1) al final (E2).
+
+Descartamos este requisito después de la entrega 3.
+La profesora dijo que hay obstáculos para ir por el campus en bicicleta,
+por lo que el recorrido no podría ser el mismo que caminando.
+-->
 
 ###  Salida
 
@@ -40,11 +46,16 @@ Los escribimos con esta estructura:
 
 * S2: El sistema debe mostrar la estimación de tiempo de recorrido caminando (P3) desde el punto inicial al final (P1) si está en la pantalla de indicaciones (S1).
 
+<!-- 
 * S3: El sistema debe mostrar la estimación de tiempo de recorrido en bicicleta (P4) desde el punto inicial al final (P1) si está en la pantalla de indicaciones (S1).
 
-* S4: El sistema debe mostrar la estimación de pasos caminando (P2) desde el punto inicial al final (P1) si está en la pantalla de indicaciones (S1) y ha calculado la ruta.
+Descartamos este requisito después de la entrega 3.
+Ver explicación de P4.
+-->
 
-* S5: El sistema debe mostrar las estadísticas totales de los pasos (X2) y tiempo (X3) que ha caminado el usuario.
+* S3: El sistema debe mostrar la estimación de pasos caminando (P2) desde el punto inicial al final (P1) si está en la pantalla de indicaciones (S1) y ha calculado la ruta.
+
+* S4: El sistema debe mostrar las estadísticas totales de los pasos (X2) y tiempo (X3) que ha caminado el usuario.
 
 
 ### Persistencia
