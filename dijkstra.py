@@ -12,7 +12,7 @@ time_and_distance_path = 'time_and_distance.csv'
 def parse_csv_input(file_name: str):
     edge_list = []
     with open(file_name) as csv_file:
-        parsed_csv = csv.reader(csv_file, delimiter=";")
+        parsed_csv = csv.reader(csv_file, delimiter="\n")
         for edge in parsed_csv:
             edge_list.append(edge[0].split(","))
     return edge_list
