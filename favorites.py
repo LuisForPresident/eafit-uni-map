@@ -1,20 +1,20 @@
 import csv
 
-from pick import pick
+from pick import pick, Option
 
 import options
 
 favorites_path = 'favorites.csv'
 
 
-def choose_from_favorites():
-    options = ['All options', 'Favorites']
+def choose_from_favorites() -> bool:
+    options = [
+        Option('All options', False),
+        Option('Favorites', True)
+    ]
     title = 'Choose destination from:'
-    decision = pick(options, title, indicator='->')[1]  # Get the index
-    if decision != 0:
-        return True
-    else:
-        return False
+    decision, index = pick(options, title, indicator='->')
+    return decision.value
 
 
 def create_favorites_list():
