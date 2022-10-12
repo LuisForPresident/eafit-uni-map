@@ -47,8 +47,6 @@ def main():
             options.append('Add')
         if favorites.is_there_at_least_one_favorite():
             options.append('Remove')
-        # options.append('Add') if is_there_at_least_one_not_favorite() else None
-        # options.append('Remove') if is_there_at_least_one_favorite() else None
 
         title = 'Edit favorites:'
         decision = pick(options, title)[0]  # In this case, get the text
@@ -57,12 +55,6 @@ def main():
         else:
             favorites.remove_favorites()
         main()
-
-        # selected = pick(options, title, multiselect=True, min_selection_count=0)
-        # new_list = []
-        # for option in selected:  # implement later with map()
-        #     new_list.append(option[0])
-        # return new_list
 
 
 if __name__ == '__main__':
