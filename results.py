@@ -2,7 +2,13 @@ import math
 from collections import deque
 from pick import pick, Option
 
+
 def show_directions(directions: deque, distance: int) -> bool:
+    directions = join_directions(directions)
+    steps = convert_to_steps(distance)
+    walking_time = estimate_walking_time(distance)
+    title = create_output_title(directions, steps, walking_time)
+
     options = [
         Option('Go back to main menu', True),
         Option('Quit program', False)
@@ -11,10 +17,10 @@ def show_directions(directions: deque, distance: int) -> bool:
     return decision.value
 
 
-def print_directions(directions: deque, distance: int):
-    options = ['Go back to main menu', 'Quit program']
-    steps = []
+def join_directions(directions: deque) -> str:
+    steps: list = []
     for step, place in enumerate(directions, 1):
+        # TODO Create a random message generator
         steps.append(str(step) + '. Go to ' + place)
     steps_str = '\n'.join(steps)
     return steps_str

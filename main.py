@@ -34,8 +34,8 @@ def main():
         directions, distance = dijkstra.get_shortest_path_and_distance(location, destination)
 
         # Print the list of directions
-        decision = results.print_directions(directions, distance)
-        if decision == 0:
+        decision = results.show_directions(directions, distance)
+        if decision is True:
             main()
         else:
             exit()
