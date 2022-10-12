@@ -28,7 +28,10 @@ def initialize_graph_keys(edge_list: list):
 
 
 # Return graph dictionary with weighted edges
-def add_graph_edges(graph_dict: dict, initial_node: str, final_node: str, distance: float):
+def add_graph_edges(graph_dict: dict,
+                    initial_node: str,
+                    final_node: str,
+                    distance: float):
     graph_dict[initial_node].append((distance, final_node))
     return graph_dict
 
@@ -56,7 +59,8 @@ def calculate_edge_distances(graph_dict: dict, initial_node: str):
 # Return directions as a deque
 def show_path(path: dict, initial_node: str, final_node: str):
     directions = deque()
-    directions.append(final_node)  # Avoids conversion to deque from splitting str into a list
+    # Avoid conversion to deque from splitting str into a list
+    directions.append(final_node)
     search = path[final_node][0]
     while search in path:
         directions.appendleft(search)
@@ -75,5 +79,7 @@ def get_shortest_path_and_distance(initial_node: str, final_node: str):
     distance = int(distance_dict[0][final_node])
     path = distance_dict[1]
     if final_node in path:
-        deque_directions: deque[Any] = show_path(path, initial_node, final_node)
+        deque_directions: deque[Any] = show_path(path,
+                                                 initial_node,
+                                                 final_node)
     return deque_directions, distance
