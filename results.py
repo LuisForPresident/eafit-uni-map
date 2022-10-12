@@ -1,7 +1,14 @@
 import math
 from collections import deque
+from pick import pick, Option
 
-from pick import pick
+def show_directions(directions: deque, distance: int) -> bool:
+    options = [
+        Option('Go back to main menu', True),
+        Option('Quit program', False)
+    ]
+    decision, index = pick(options, title, indicator='->')
+    return decision.value
 
 
 def print_directions(directions: deque, distance: int):
