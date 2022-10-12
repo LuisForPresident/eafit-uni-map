@@ -42,7 +42,8 @@ def main():
     else:
         options = []
 
-        if favorites.is_there_at_least_one_not_favorite():
+        all_places = create_options()
+        if favorites.is_there_at_least_one_not_favorite(all_places):
             options.append('Add')
         if favorites.is_there_at_least_one_favorite():
             options.append('Remove')
@@ -52,7 +53,7 @@ def main():
         title = 'Edit favorites:'
         decision = pick(options, title)[0]  # In this case, get the text
         if decision == 'Add':
-            favorites.add_favorites()
+            favorites.add_favorites(all_places)
         else:
             favorites.remove_favorites()
         main()

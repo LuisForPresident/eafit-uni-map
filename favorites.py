@@ -2,7 +2,6 @@ import csv
 
 from pick import pick, Option
 
-import options
 
 favorites_path = 'favorites.csv'
 
@@ -26,13 +25,12 @@ def create_favorites_list():
             choose_from_favorites()
 
 
-def add_favorites():
+def add_favorites(all_places: list):
     with open(favorites_path, mode='r') as favorites:
         try:
             already_favorites = next(csv.reader(favorites, delimiter=','))
         except StopIteration:
             already_favorites = []
-    all_places = options.create_options()
 
     for favorite in already_favorites:
         if favorite in all_places:
@@ -87,13 +85,13 @@ def is_there_at_least_one_favorite():
             return False
 
 
-def is_there_at_least_one_not_favorite():
+def is_there_at_least_one_not_favorite(all_places: list):
     with open(favorites_path, mode='r') as favorites:
         try:
             already_favorites = next(csv.reader(favorites, delimiter=','))
         except StopIteration:
             return True
-    all_places = options.create_options()
+    
     for favorite in already_favorites:
         if favorite in all_places:
             all_places.remove(favorite)
