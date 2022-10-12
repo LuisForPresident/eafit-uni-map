@@ -30,12 +30,14 @@ def main():
             destination_options = location_options
         destination = input.get_destination(destination_options, location)
 
-        # Calculate the shortest path
+        # Compute the shortest path
         directions, distance = dijkstra.get_shortest_path_and_distance(location, destination)
 
-        # Print the list of directions
-        decision = results.show_directions(directions, distance)
-        if decision is True:
+        # Display the list of directions and stats
+        start_again = results.show_directions(directions, distance)
+
+        # Go back to start menu or quit program
+        if start_again is True:
             main()
         else:
             exit()
