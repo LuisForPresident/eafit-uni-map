@@ -3,7 +3,7 @@ from pick import pick
 
 def get_location(options: list) -> str:
     title = 'Select your current location:'
-    location = pick(options, title, indicator='->')[0]
+    location, index = pick(options, title, indicator='->')
     return location
 
 
@@ -13,5 +13,5 @@ def get_destination(options: list, location: str) -> str:
         options.remove(location)  # Destination must not be the location
     options.sort()
     title = 'Select your destination:'
-    destination = pick(options, title, indicator='->')[0]
+    destination, index = pick(options, title, indicator='->')
     return destination
