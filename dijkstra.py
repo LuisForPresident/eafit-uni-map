@@ -70,6 +70,14 @@ def show_path(path: dict, initial_node: str, final_node: str):
 
 
 def get_shortest_path_and_distance(initial_node: str, final_node: str):
+    # Weird special case I really do not want :/
+    special_case = check_special_case(initial_node, final_node)
+    if special_case is True:
+        # initial_node, final_node = final_node, initial_node
+        swap_temp_var = final_node
+        final_node = initial_node
+        initial_node = swap_temp_var
+
     deque_directions = deque()
     edge_list = parse_csv_input(graph_path)
     graph = initialize_graph_keys(edge_list[0])
@@ -82,4 +90,18 @@ def get_shortest_path_and_distance(initial_node: str, final_node: str):
         deque_directions: deque[Any] = show_path(path,
                                                  initial_node,
                                                  final_node)
+    if special_case is True:
+        deque_directions.reverse()
     return deque_directions, distance
+
+
+def check_special_case(initial_node, final_node) -> bool:
+    # See issue #36 on GitHub
+    # Equivalent to options.create_options()
+    nodes = parse_csv_input(graph_path)[0]
+    final_index = nodes.index(final_node)
+    initial_index = nodes.index(initial_node)
+    if final_index < initial_index:
+        return True
+    else:
+        return False
