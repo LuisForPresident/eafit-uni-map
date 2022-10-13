@@ -12,7 +12,7 @@ def get_json_as_dict() -> dict:
 
 def save_dict_as_json(json_object: dict) -> None:
     # TODO Use path instead of string
-    with open(stats_path, mode='write') as file:
+    with open(stats_path, mode='w') as file:
         json.dump(json_object, file,
                   indent=2)  # Prettify json
 
