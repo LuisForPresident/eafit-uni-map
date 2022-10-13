@@ -28,3 +28,13 @@ def update_stats(steps: int, walking_time: int) -> None:
     # This seems redundant, but I find it better to decompose
     new_stats = sum_new_stats(steps, walking_time)
     save_dict_as_json(new_stats)
+
+
+# TODO Move to setup module
+def _reset_stats() -> None:
+    # NOTE: The program should never run this
+    if input('Reset stats?!!! [Y/n] ') == 'Y':
+        stats = get_json_as_dict()
+        stats['time'] = 0
+        stats['distance'] = 0
+        save_dict_as_json(stats)
