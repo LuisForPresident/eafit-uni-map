@@ -6,6 +6,7 @@ import input
 import results
 from options import create_options
 import start
+import stats
 
 # TODO Write the paths in a global and better way
 # Declare global paths for csv files
@@ -17,7 +18,10 @@ time_and_distance_path = 'time_and_distance.json'
 # TODO Learn what __main__() and __init__() mean
 
 def main():
-    if start.select_travel() is True:
+    # Get stats and send them to start menu
+    current_stats = stats.get_json_as_tuple()
+
+    if start.select_travel(current_stats) is True:
         # Get the location
         location_options = create_options()
         location = input.get_location(location_options)
@@ -35,6 +39,11 @@ def main():
 
         # Display the list of directions and stats
         start_again = results.show_directions(directions, distance)
+
+        # Store stats from this trip
+        steps = results.convert_to_steps(distance)
+        walking_time = results.estimate_walking_time(distance)
+        stats.update_stats(steps, walking_time)
 
         # Go back to start menu or quit program
         if start_again is True:
