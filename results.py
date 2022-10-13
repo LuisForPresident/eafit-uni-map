@@ -49,5 +49,5 @@ def convert_to_steps(distance_in_meters: int) -> int:
 
 def estimate_walking_time(distance_in_meters: int) -> int:
     walking_time = distance_in_meters / 1  # TODO Get a better ref for the estimation
-    # TODO Ceil the result when previous todo item is ready
+    walking_time = math.ceil(walking_time)
     return walking_time
