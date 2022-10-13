@@ -19,9 +19,16 @@ def show_directions(directions: deque, distance: int) -> bool:
 
 def join_directions(directions: deque) -> str:
     steps: list = []
+    message: str
     for step, place in enumerate(directions, 1):
+        if step == 1:
+            message = '. Start from '
+        elif step == len(directions):
+            message = '. Arrive at '
         # TODO Create a random message generator
-        steps.append(str(step) + '. Go to ' + place)
+        else:
+            message = '. Go to '
+        steps.append(str(step) + message + place)
     steps_str = '\n'.join(steps)
     return steps_str
 
