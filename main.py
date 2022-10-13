@@ -11,7 +11,7 @@ import start
 # Declare global paths for csv files
 graph_path = 'example.csv'
 favorites_path = 'favorites.csv'
-time_and_distance_path = 'time_and_distance.csv'
+time_and_distance_path = 'time_and_distance.json'
 
 
 # TODO Learn what __main__() and __init__() mean
