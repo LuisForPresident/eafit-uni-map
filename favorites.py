@@ -9,8 +9,9 @@ favorites_path = 'favorites.csv'
 def choose_from_favorites() -> bool:
     options = [
         Option('All options', False),
-        Option('Favorites', True)
     ]
+    if is_there_at_least_one_favorite() is True:
+        options.append(Option('Favorites', True))
     title = 'Choose destination from:'
     decision, index = pick(options, title, indicator='->')
     return decision.value
