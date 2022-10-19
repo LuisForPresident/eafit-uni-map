@@ -10,18 +10,18 @@ import stats
 # Declare global paths for csv files
 graph_path = 'example.csv'
 favorites_path = 'favorites.csv'
-time_and_distance_path = 'time_and_distance.json'
+stats_path = 'time_and_distance.json'
 
 
 # TODO Learn what __main__() and __init__() mean
 
 def main():
     # Get stats and send them to start menu
-    current_stats = stats.get_json_as_tuple()
+    current_stats = stats.get_json_as_tuple(stats_path)
 
     if choice.select_travel(current_stats) is True:
         # Get the location
-        location_options = choice.create_options()
+        location_options = choice.create_options(graph_path)
         location = choice.get_location(location_options)
 
         # Get the destination
@@ -33,7 +33,7 @@ def main():
         destination = choice.get_destination(destination_options, location)
 
         # Compute the shortest path
-        directions, distance = dijkstra.get_shortest_path_and_distance(location, destination)
+        directions, distance = dijkstra.get_shortest_path_and_distance(location, destination, graph_path)
 
         # Display the list of directions and stats
         start_again = results.show_directions(directions, distance)
@@ -51,7 +51,7 @@ def main():
     else:
         options = []
 
-        all_places = choice.create_options()
+        all_places = choice.create_options(graph_path)
         if favorites.is_there_at_least_one_not_favorite(all_places):
             options.append('Add')
         if favorites.is_there_at_least_one_favorite():
