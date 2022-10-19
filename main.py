@@ -2,10 +2,8 @@ from pick import pick
 
 import dijkstra
 import favorites
-import input
 import results
-from options import create_options
-import start
+import choice
 import stats
 
 # TODO Write the paths in a global and better way
@@ -21,10 +19,10 @@ def main():
     # Get stats and send them to start menu
     current_stats = stats.get_json_as_tuple()
 
-    if start.select_travel(current_stats) is True:
+    if choice.select_travel(current_stats) is True:
         # Get the location
-        location_options = create_options()
-        location = input.get_location(location_options)
+        location_options = choice.create_options()
+        location = choice.get_location(location_options)
 
         # Get the destination
         from_favorites = favorites.choose_from_favorites()
@@ -32,7 +30,7 @@ def main():
             destination_options = favorites.create_favorites_list()
         else:
             destination_options = location_options
-        destination = input.get_destination(destination_options, location)
+        destination = choice.get_destination(destination_options, location)
 
         # Compute the shortest path
         directions, distance = dijkstra.get_shortest_path_and_distance(location, destination)
@@ -53,7 +51,7 @@ def main():
     else:
         options = []
 
-        all_places = create_options()
+        all_places = choice.create_options()
         if favorites.is_there_at_least_one_not_favorite(all_places):
             options.append('Add')
         if favorites.is_there_at_least_one_favorite():
