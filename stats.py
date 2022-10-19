@@ -1,9 +1,6 @@
 import json
 
 
-stats_path = 'time_and_distance.json'
-
-
 def get_json_as_dict(stats_path: str) -> dict:
     # TODO Use path instead of string
     with open(stats_path) as file:

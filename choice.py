@@ -2,7 +2,6 @@ from pick import pick, Option
 
 import csv
 
-graph_path = 'example.csv'
 
 def create_options(graph_path) -> list:
     with open(graph_path) as csv_file:

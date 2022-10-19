@@ -3,10 +3,6 @@ import csv
 from collections import deque
 from typing import Any
 
-graph_path = 'example.csv'
-favorites_path = 'favorites.csv'
-time_and_distance_path = 'time_and_distance.json'
-
 
 # Return input csv file of edge list as a list
 def parse_csv_input(file_name: str):
