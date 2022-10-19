@@ -11,6 +11,7 @@ def create_options() -> list:
         first_row = next(parsed_csv)
     return first_row
 
+
 def get_location(options: list) -> str:
     title = 'Select your current location:'
     location, index = pick(options, title, indicator='->')
@@ -25,6 +26,7 @@ def get_destination(options: list, location: str) -> str:
     title = 'Select your destination:'
     destination, index = pick(options, title, indicator='->')
     return destination
+
 
 def select_travel(stats: tuple) -> bool:
     options = [

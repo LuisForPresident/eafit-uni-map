@@ -9,6 +9,7 @@ def get_json_as_dict() -> dict:
     with open(stats_path) as file:
         return json.load(file)
 
+
 def get_json_as_tuple() -> tuple:
     stats = get_json_as_dict()
     return stats['distance'], stats['time']
