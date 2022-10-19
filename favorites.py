@@ -102,6 +102,15 @@ def is_there_at_least_one_not_favorite(all_places: list):
         return True
 
 
+def which_favorites_action(possible_actions: list, all_places:list):
+    title = 'Edit favorites:'
+    action_on_favorites, index = pick(possible_actions, title)
+    if action_on_favorites == 'Add':
+        add_favorites(all_places)
+    else:
+        remove_favorites()
+
+
 def change_favorites(options):
     with open('favorites.csv', mode='write') as csv_file:
         favorite_changer = csv.writer(csv_file, delimiter=',')

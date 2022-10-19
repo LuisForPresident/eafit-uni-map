@@ -49,20 +49,16 @@ def main():
         else:
             exit()
     else:
-        options = []
+        possible_actions = []
 
         all_places = choice.create_options(graph_path)
         if favorites.is_there_at_least_one_not_favorite(all_places):
-            options.append('Add')
+            possible_actions.append('Add')
         if favorites.is_there_at_least_one_favorite():
-            options.append('Remove')
+            possible_actions.append('Remove')
 
-        title = 'Edit favorites:'
-        decision = pick(options, title)[0]  # In this case, get the text
-        if decision == 'Add':
-            favorites.add_favorites(all_places)
-        else:
-            favorites.remove_favorites()
+        favorites.which_favorites_action(possible_actions, all_places)
+
         main()
 
 
