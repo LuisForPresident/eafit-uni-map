@@ -4,8 +4,9 @@ import csv
 
 import config
 
-def create_options(graph_path) -> list:
-    with open(graph_path) as csv_file:
+
+def create_options() -> list:
+    with open(config.graph_path) as csv_file:
         parsed_csv = csv.reader(csv_file)
         first_row = next(parsed_csv)
     return first_row
