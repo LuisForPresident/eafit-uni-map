@@ -1,12 +1,12 @@
 from pick import pick
-import os.path
-import config
 
 import dijkstra
 import favorites
 import results
 import choice
 import stats
+
+import config
 
 
 # TODO Learn what __main__() and __init__() mean

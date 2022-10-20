@@ -3,6 +3,7 @@ import csv
 from collections import deque
 from typing import Any
 
+import config
 
 # Return input csv file of edge list as a list
 def parse_csv_input(file_name: str):

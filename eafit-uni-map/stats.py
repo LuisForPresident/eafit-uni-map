@@ -1,5 +1,6 @@
 import json
 
+import config
 
 def get_json_as_dict(stats_path: str) -> dict:
     # TODO Use path instead of string

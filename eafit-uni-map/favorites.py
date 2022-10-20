@@ -2,8 +2,7 @@ import csv
 
 from pick import pick, Option
 
-
-favorites_path = 'favorites.csv'
+import config
 
 
 def choose_from_favorites() -> bool:

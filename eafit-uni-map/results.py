@@ -2,6 +2,7 @@ import math
 from collections import deque
 from pick import pick, Option
 
+import config
 
 def show_directions(directions: deque, distance: int) -> bool:
     directions = join_directions(directions)
