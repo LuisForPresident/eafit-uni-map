@@ -1,4 +1,5 @@
 from pick import pick
+import os.path
 
 import dijkstra
 import favorites
@@ -8,6 +9,7 @@ import stats
 
 # TODO Write the paths in a global and better way
 # Declare global paths for csv files
+
 graph_path = 'example.csv'
 favorites_path = 'favorites.csv'
 stats_path = 'time_and_distance.json'
