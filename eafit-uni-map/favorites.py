@@ -110,15 +110,15 @@ def which_favorites_action(possible_actions: list, all_places:list):
         remove_favorites()
 
 
-def change_favorites(options):
-    with open('favorites.csv', mode='write') as csv_file:
-        favorite_changer = csv.writer(csv_file, delimiter=',')
-        favorite_changer.writerow(options)
+# def change_favorites(options):
+#     with open('favorites.csv', mode='write') as csv_file:
+#         favorite_changer = csv.writer(csv_file, delimiter=',')
+#         favorite_changer.writerow(options)
 
 
-# TODO Refactor the read favorites code
-def read_favorites(favorites_path):
-    with open(favorites_path, mode='read') as csv_file:
-        favorite_reader = csv.reader(csv_file, delimiter=',')
-        options = next(favorite_reader)
-    return options
+# # TODO Refactor the read favorites code
+# def read_favorites(favorites_path):
+#     with open(favorites_path, mode='read') as csv_file:
+#         favorite_reader = csv.reader(csv_file, delimiter=',')
+#         options = next(favorite_reader)
+#     return options
