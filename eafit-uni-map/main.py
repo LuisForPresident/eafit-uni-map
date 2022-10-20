@@ -13,11 +13,11 @@ import config
 
 def main():
     # Get stats and send them to start menu
-    current_stats = stats.get_json_as_tuple(stats_path)
+    current_stats = stats.get_json_as_tuple()
 
     if choice.select_travel(current_stats) is True:
         # Get the location
-        location_options = choice.create_options(graph_path)
+        location_options = choice.create_options()
         location = choice.get_location(location_options)
 
         # Get the destination
@@ -29,7 +29,7 @@ def main():
         destination = choice.get_destination(destination_options, location)
 
         # Compute the shortest path
-        directions, distance = dijkstra.get_shortest_path_and_distance(location, destination, graph_path)
+        directions, distance = dijkstra.get_shortest_path_and_distance(location, destination)
 
         # Display the list of directions and stats
         start_again = results.show_directions(directions, distance)
@@ -47,7 +47,7 @@ def main():
     else:
         possible_actions = []
 
-        all_places = choice.create_options(graph_path)
+        all_places = choice.create_options()
         if favorites.is_there_at_least_one_not_favorite(all_places):
             possible_actions.append('Add')
         if favorites.is_there_at_least_one_favorite():
