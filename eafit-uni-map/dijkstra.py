@@ -3,11 +3,13 @@ import csv
 from collections import deque
 from typing import Any
 
+import config
+
 
 # Return input csv file of edge list as a list
-def parse_csv_input(file_name: str):
+def parse_csv_input():
     edge_list = []
-    with open(file_name) as csv_file:
+    with open(config.graph_path) as csv_file:
         parsed_csv = csv.reader(csv_file, delimiter='\n')
         for edge in parsed_csv:
             edge_list.append(edge[0].split(','))
@@ -65,9 +67,9 @@ def show_path(path: dict, initial_node: str, final_node: str):
     return directions
 
 
-def get_shortest_path_and_distance(initial_node: str, final_node: str, graph_path: str):
+def get_shortest_path_and_distance(initial_node: str, final_node: str):
     # Weird special case I really do not want :/
-    special_case = check_special_case(initial_node, final_node, graph_path)
+    special_case = check_special_case(initial_node, final_node)
     if special_case is True:
         # initial_node, final_node = final_node, initial_node
         swap_temp_var = final_node
@@ -75,7 +77,7 @@ def get_shortest_path_and_distance(initial_node: str, final_node: str, graph_pat
         initial_node = swap_temp_var
 
     deque_directions = deque()
-    edge_list = parse_csv_input(graph_path)
+    edge_list = parse_csv_input()
     graph = initialize_graph_keys(edge_list[0])
     for edge in edge_list[1:]:
         add_graph_edges(graph, edge[0], edge[1], float(edge[2]))
@@ -91,10 +93,10 @@ def get_shortest_path_and_distance(initial_node: str, final_node: str, graph_pat
     return deque_directions, distance
 
 
-def check_special_case(initial_node, final_node, graph_path: str) -> bool:
+def check_special_case(initial_node, final_node) -> bool:
     # See issue #36 on GitHub
     # Equivalent to options.create_options()
-    nodes = parse_csv_input(graph_path)[0]
+    nodes = parse_csv_input()[0]
     final_index = nodes.index(final_node)
     initial_index = nodes.index(initial_node)
     if final_index < initial_index:
@@ -103,12 +105,12 @@ def check_special_case(initial_node, final_node, graph_path: str) -> bool:
         return False
 
 
-# These two functions below are intended for testing dijkstra
-def get_shortest_path(initial_node: str, final_node: str):
-    # Return the deque_directions
-    return get_shortest_path_and_distance(initial_node, final_node)[0]
+# # These two functions below are intended for testing dijkstra
+# def get_shortest_path(initial_node: str, final_node: str):
+#     # Return the deque_directions
+#     return get_shortest_path_and_distance(initial_node, final_node)[0]
 
 
-def get_distance(initial_node: str, final_node: str):
-    # Return the distance
-    return get_shortest_path_and_distance(initial_node, final_node)[1]
+# def get_distance(initial_node: str, final_node: str):
+#     # Return the distance
+#     return get_shortest_path_and_distance(initial_node, final_node)[1]

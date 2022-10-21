@@ -2,8 +2,7 @@ import csv
 
 from pick import pick, Option
 
-
-favorites_path = 'favorites.csv'
+import config
 
 
 def choose_from_favorites() -> bool:
@@ -18,7 +17,7 @@ def choose_from_favorites() -> bool:
 
 
 def create_favorites_list():
-    with open(favorites_path, mode='r') as favorites:
+    with open(config.favorites_path, mode='r') as favorites:
         try:
             already_favorites = next(csv.reader(favorites, delimiter=','))
             return already_favorites
@@ -27,7 +26,7 @@ def create_favorites_list():
 
 
 def add_favorites(all_places: list):
-    with open(favorites_path, mode='r') as favorites:
+    with open(config.favorites_path, mode='r') as favorites:
         try:
             already_favorites = next(csv.reader(favorites, delimiter=','))
         except StopIteration:
@@ -47,12 +46,12 @@ def add_favorites(all_places: list):
         favorites_to_add.extend(already_favorites)  # so it doesn't overwrite the existing favorites
         favorites_to_add.sort()
 
-        with open(favorites_path, mode='w') as final_favorites:
+        with open(config.favorites_path, mode='w') as final_favorites:
             csv.writer(final_favorites, delimiter=',').writerow(favorites_to_add)
 
 
 def remove_favorites():
-    with open(favorites_path, mode='r') as favorites:
+    with open(config.favorites_path, mode='r') as favorites:
         try:
             already_favorites = next(csv.reader(favorites, delimiter=','))
         except StopIteration:
@@ -71,12 +70,12 @@ def remove_favorites():
             if favorite in already_favorites:
                 already_favorites.remove(favorite)
         already_favorites.sort()
-        with open(favorites_path, mode='w') as final_favorites:
+        with open(config.favorites_path, mode='w') as final_favorites:
             csv.writer(final_favorites, delimiter=',').writerow(already_favorites)
 
 
 def is_there_at_least_one_favorite():
-    with open(favorites_path, mode='r') as favorites:
+    with open(config.favorites_path, mode='r') as favorites:
         try:
             if next(csv.reader(favorites, delimiter=',')):
                 return True
@@ -87,7 +86,7 @@ def is_there_at_least_one_favorite():
 
 
 def is_there_at_least_one_not_favorite(all_places: list):
-    with open(favorites_path, mode='r') as favorites:
+    with open(config.favorites_path, mode='r') as favorites:
         try:
             already_favorites = next(csv.reader(favorites, delimiter=','))
         except StopIteration:
@@ -111,15 +110,15 @@ def which_favorites_action(possible_actions: list, all_places:list):
         remove_favorites()
 
 
-def change_favorites(options):
-    with open('favorites.csv', mode='write') as csv_file:
-        favorite_changer = csv.writer(csv_file, delimiter=',')
-        favorite_changer.writerow(options)
+# def change_favorites(options):
+#     with open('favorites.csv', mode='write') as csv_file:
+#         favorite_changer = csv.writer(csv_file, delimiter=',')
+#         favorite_changer.writerow(options)
 
 
-# TODO Refactor the read favorites code
-def read_favorites(favorites_path):
-    with open(favorites_path, mode='read') as csv_file:
-        favorite_reader = csv.reader(csv_file, delimiter=',')
-        options = next(favorite_reader)
-    return options
+# # TODO Refactor the read favorites code
+# def read_favorites(favorites_path):
+#     with open(favorites_path, mode='read') as csv_file:
+#         favorite_reader = csv.reader(csv_file, delimiter=',')
+#         options = next(favorite_reader)
+#     return options
