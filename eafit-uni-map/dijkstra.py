@@ -5,6 +5,7 @@ from typing import Any
 
 import config
 
+
 # Return input csv file of edge list as a list
 def parse_csv_input():
     edge_list = []
@@ -104,12 +105,12 @@ def check_special_case(initial_node, final_node) -> bool:
         return False
 
 
-# These two functions below are intended for testing dijkstra
-def get_shortest_path(initial_node: str, final_node: str):
-    # Return the deque_directions
-    return get_shortest_path_and_distance(initial_node, final_node)[0]
+# # These two functions below are intended for testing dijkstra
+# def get_shortest_path(initial_node: str, final_node: str):
+#     # Return the deque_directions
+#     return get_shortest_path_and_distance(initial_node, final_node)[0]
 
 
-def get_distance(initial_node: str, final_node: str):
-    # Return the distance
-    return get_shortest_path_and_distance(initial_node, final_node)[1]
+# def get_distance(initial_node: str, final_node: str):
+#     # Return the distance
+#     return get_shortest_path_and_distance(initial_node, final_node)[1]
