@@ -74,18 +74,18 @@ Ver explicación de P4.
 
 ### Entrada
 
-* El sistema debe permitir editar con facilidad los destinos favoritos.
+* NE1: El sistema debe permitir editar con facilidad los destinos favoritos.
 
-* El sistema debe permitir volver a la pantalla de inicio o cerrar el programa si está en la pantalla de indicaciones.
+* NE2: El sistema debe permitir volver a la pantalla de inicio o cerrar el programa si está en la pantalla de indicaciones.
 
 ### Procesamiento
 
-* El sistema debe convertir las unidades con código entendible.
+* NP1: El sistema debe convertir las unidades con código entendible.
 
 ### Salida
 
-* El sistema debe mostrar esta guía de una manera concisa y fácil de entender. 
+* NS1: El sistema debe mostrar esta guía de una manera concisa y fácil de entender. 
 
 ### Persistencia
 
-* El sistema debe almacenar los datos en un formato sencillo.
+* NX1: El sistema debe almacenar los datos en un formato sencillo.
