@@ -88,4 +88,4 @@ Ver explicación de P4.
 
 ### Persistencia
 
-* XN1: El sistema debe almacenar los datos en un formato sencillo.
+* NX1: El sistema debe almacenar los datos en un formato sencillo.
