@@ -4,10 +4,6 @@ import results
 import choice
 import stats
 
-import config
-
-
-# TODO Learn what __main__() and __init__() mean
 
 def main():
     # Get stats and send them to start menu
