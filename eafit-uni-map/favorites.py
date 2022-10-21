@@ -43,7 +43,9 @@ def add_favorites(all_places: list):
         favorites_to_add = []
         for favorite in favorites_from_pick:
             favorites_to_add.append(favorite[0])
-        favorites_to_add.extend(already_favorites)  # so it doesn't overwrite the existing favorites
+
+        # so it doesn't overwrite the existing favorites
+        favorites_to_add.extend(already_favorites)
         favorites_to_add.sort()
 
         with open(config.favorites_path, mode='w') as final_favorites:
@@ -91,7 +93,7 @@ def is_there_at_least_one_not_favorite(all_places: list):
             already_favorites = next(csv.reader(favorites, delimiter=','))
         except StopIteration:
             return True
-    
+
     for favorite in already_favorites:
         if favorite in all_places:
             all_places.remove(favorite)
@@ -101,7 +103,7 @@ def is_there_at_least_one_not_favorite(all_places: list):
         return True
 
 
-def which_favorites_action(possible_actions: list, all_places:list):
+def which_favorites_action(possible_actions: list, all_places: list):
     title = 'Edit favorites:'
     action_on_favorites, index = pick(possible_actions, title)
     if action_on_favorites == 'Add':
