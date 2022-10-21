@@ -1,5 +1,3 @@
-from pick import pick
-
 import dijkstra
 import favorites
 import results
