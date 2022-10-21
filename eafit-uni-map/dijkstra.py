@@ -6,9 +6,9 @@ from typing import Any
 import config
 
 # Return input csv file of edge list as a list
-def parse_csv_input(file_name: str):
+def parse_csv_input():
     edge_list = []
-    with open(file_name) as csv_file:
+    with open(config.graph_path) as csv_file:
         parsed_csv = csv.reader(csv_file, delimiter='\n')
         for edge in parsed_csv:
             edge_list.append(edge[0].split(','))
@@ -76,7 +76,7 @@ def get_shortest_path_and_distance(initial_node: str, final_node: str):
         initial_node = swap_temp_var
 
     deque_directions = deque()
-    edge_list = parse_csv_input(config.graph_path)
+    edge_list = parse_csv_input()
     graph = initialize_graph_keys(edge_list[0])
     for edge in edge_list[1:]:
         add_graph_edges(graph, edge[0], edge[1], float(edge[2]))
@@ -95,7 +95,7 @@ def get_shortest_path_and_distance(initial_node: str, final_node: str):
 def check_special_case(initial_node, final_node) -> bool:
     # See issue #36 on GitHub
     # Equivalent to options.create_options()
-    nodes = parse_csv_input(config.graph_path)[0]
+    nodes = parse_csv_input()[0]
     final_index = nodes.index(final_node)
     initial_index = nodes.index(initial_node)
     if final_index < initial_index:
