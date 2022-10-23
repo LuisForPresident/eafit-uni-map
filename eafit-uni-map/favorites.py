@@ -103,13 +103,21 @@ def is_there_at_least_one_not_favorite(all_places: list):
         return True
 
 
-def which_favorites_action(possible_actions: list, all_places: list):
-    title = 'Edit favorites:'
-    action_on_favorites, index = pick(possible_actions, title)
-    if action_on_favorites == 'Add':
+def should_add_favorites(possible_actions: list, all_places: list) -> None:
+    # -1 since choice.value expects an Option with value
+    possible_actions.append(Option('Go back', -1))
+    title = 'Pick an option (or go back)'
+
+    choice, index = pick(possible_actions, title)
+    user_wants_to_add_favorites = choice.value
+
+    if user_wants_to_add_favorites is True:
         add_favorites(all_places)
-    else:
+    elif user_wants_to_add_favorites is False:
         remove_favorites()
+    else:
+        # Abort editing
+        pass
 
 
 # def change_favorites(options):

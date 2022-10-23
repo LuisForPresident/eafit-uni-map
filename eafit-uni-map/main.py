@@ -6,6 +6,7 @@ import stats
 import config
 
 import networkx as nx
+from pick import Option
 
 
 def main():
@@ -63,12 +64,12 @@ def main():
 
         all_places = list(Graph.nodes)
         if favorites.is_there_at_least_one_not_favorite(all_places):
-            possible_actions.append('Add')
+            possible_actions.append(Option('Add', True))
         if favorites.is_there_at_least_one_favorite():
-            possible_actions.append('Remove')
+            possible_actions.append(Option('Remove', False))
 
         # Q: Add or remove favorites?
-        favorites.which_favorites_action(possible_actions, all_places)
+        favorites.should_add_favorites(possible_actions, all_places)
 
         # Go back to start menu
         main()
