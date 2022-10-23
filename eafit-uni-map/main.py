@@ -37,7 +37,10 @@ def main():
         destination = choice.get_destination(destination_options, location)
 
         # Compute the shortest path
-        directions, distance = dijkstra.get_shortest_path_and_distance(location, destination)
+        directions = nx.dijkstra_path(Graph, location, destination)
+
+        # Get length of that shortest path
+        distance = nx.dijkstra_path_length(Graph, location, destination)
 
         # Display directions and stats for that trip
         start_again = results.show_directions(directions, distance)
