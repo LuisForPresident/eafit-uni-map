@@ -1,4 +1,3 @@
-import dijkstra
 import favorites
 import results
 import choice
