@@ -10,17 +10,18 @@ import networkx as nx
 
 
 def main():
+    # Create graph from edgelist file
+    Graph = nx.read_weighted_edgelist(
+        config.graph_path,
+        comments='#',
+        delimiter=','  # csv-like
+    )
+
     # Get all-time stats
     current_stats = stats.get_json_as_tuple()
 
     # Pass stats to main menu function
     if choice.select_travel(current_stats) is True:
-        # Create graph from edgelist file
-        Graph = nx.read_weighted_edgelist(
-            config.graph_path,
-            comments='#',
-            delimiter=','  # csv-like
-        )
 
         # Choose location
         location_options = list(Graph.nodes)
@@ -61,7 +62,7 @@ def main():
     else:
         possible_actions = []
 
-        all_places = choice.create_options()
+        all_places = list(Graph.nodes)
         if favorites.is_there_at_least_one_not_favorite(all_places):
             possible_actions.append('Add')
         if favorites.is_there_at_least_one_favorite():
