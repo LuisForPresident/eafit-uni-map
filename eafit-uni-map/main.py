@@ -4,6 +4,8 @@ import results
 import choice
 import stats
 
+import config
+
 import networkx as nx
 
 
@@ -13,6 +15,13 @@ def main():
 
     # Pass stats to main menu function
     if choice.select_travel(current_stats) is True:
+        # Create graph from edgelist file
+        Graph = nx.read_weighted_edgelist(
+            config.graph_path,
+            comments='#',
+            delimiter=','  # csv-like
+        )
+
         # Choose location
         location_options = choice.create_options()
         location = choice.get_location(location_options)
