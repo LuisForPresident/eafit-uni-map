@@ -23,7 +23,7 @@ def main():
         )
 
         # Choose location
-        location_options = choice.create_options()
+        location_options = list(Graph.nodes)
         location = choice.get_location(location_options)
 
         # Choose destination from: All options or favorites?
