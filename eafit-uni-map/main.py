@@ -4,6 +4,8 @@ import results
 import choice
 import stats
 
+import networkx as nx
+
 
 def main():
     # Get all-time stats
