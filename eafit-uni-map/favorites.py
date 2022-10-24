@@ -37,7 +37,9 @@ def add_favorites(all_places: list):
             all_places.remove(favorite)
 
     try:
-        favorites_from_pick = pick(all_places, 'Select favorites to add with SPACE', multiselect=True,
+        favorites_from_pick = pick(all_places,
+                                   'Select one or more with SPACE and confirm with ENTER',
+                                   multiselect=True,
                                    min_selection_count=1)
     finally:
         favorites_to_add = []
@@ -59,7 +61,9 @@ def remove_favorites():
         except StopIteration:
             already_favorites = []
     try:
-        favorites_from_pick = pick(already_favorites, 'Select favorites to remove with SPACE', multiselect=True,
+        favorites_from_pick = pick(already_favorites,
+                                   'Select one or more with SPACE and confirm with ENTER',
+                                   multiselect=True,
                                    min_selection_count=1)
     finally:
         # extract the A,B,C values (etc.) from the list of tuples
