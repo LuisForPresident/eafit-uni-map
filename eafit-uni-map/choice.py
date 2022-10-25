@@ -41,9 +41,8 @@ def select_travel(stats: tuple) -> bool:
     return decision.value  # Either 'True' or 'False'
 
 
-def get_start_title(stats: tuple) -> str:
-    distance, time = stats
-    stats_to_display = 'You have walked {0} steps in {1} secs'.format(str(distance), str(time))
+def get_start_title(stats: str) -> str:
+    stats_to_display = 'You have walked {0}'.format(stats)
     start_title = 'EAFIT University Map - 2022'
     authors = 'Luis M. Torres-Villegas & Miguel Suárez-Obando'
     repository_url = 'https://github.com/LuisForPresident/eafit-uni-map/'

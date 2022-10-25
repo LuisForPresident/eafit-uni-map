@@ -18,7 +18,7 @@ def main():
     )
 
     # Get all-time stats
-    current_stats = stats.get_json_as_tuple()
+    current_stats = stats.get_formatted_stats()
 
     # Pass stats to main menu function
     if choice.select_travel(current_stats) is True:

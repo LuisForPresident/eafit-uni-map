@@ -8,9 +8,27 @@ def get_stats_dict() -> dict:
         return json.load(file)
 
 
-def get_json_as_tuple() -> tuple:
-    stats = get_json_as_dict()
-    return stats['distance'], stats['time']
+def get_formatted_stats() -> str:
+    current_stats = get_stats_dict()
+
+    distance = str(current_stats['distance'])
+    timespan: int = current_stats['time']
+
+    formatted_time: str
+
+    if timespan != 0:
+        minutes = int(timespan / 60)
+        seconds = int(timespan % 60)
+        if minutes >= 1:
+            formatted_time = '{0} mins and {1} secs'.format(minutes, seconds)
+        else:
+            formatted_time = '{0} secs'.format(seconds)
+    else:
+        formatted_time = '0 secs'
+
+    formatted_stats: str = '{0} steps in {1}'.format(distance, formatted_time)
+
+    return formatted_stats
 
 
 def save_dict_as_json(json_object: dict) -> None:
