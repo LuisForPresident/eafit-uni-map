@@ -3,7 +3,7 @@ import json
 import config
 
 
-def get_json_as_dict() -> dict:
+def get_stats_dict() -> dict:
     # TODO Use path instead of string
     with open(config.stats_path) as file:
         return json.load(file)
@@ -22,7 +22,7 @@ def save_dict_as_json(json_object: dict) -> None:
 
 
 def sum_new_stats(steps: int, walking_time: int) -> dict:
-    stats = get_json_as_dict()
+    stats = get_stats_dict()
     stats['distance'] += steps
     stats['time'] += walking_time
     return stats
@@ -38,7 +38,7 @@ def update_stats(steps: int, walking_time: int) -> None:
 def _reset_stats() -> None:
     # NOTE: The program should never run this
     if input('Reset stats?!!! [Y/n] ') == 'Y':
-        stats = get_json_as_dict()
+        stats = get_stats_dict()
         stats['time'] = 0
         stats['distance'] = 0
         save_dict_as_json(stats)
