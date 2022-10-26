@@ -41,18 +41,18 @@ def main():
         directions = nx.dijkstra_path(Graph, location, destination)
 
         # Get length of that shortest path
-        distance = nx.dijkstra_path_length(Graph, location, destination)
+        distance_in_meters = nx.dijkstra_path_length(Graph, location, destination)
 
-        # Display directions and stats for that trip
-        start_again = results.show_directions(directions, distance)
-
-        # TODO Pass data directly to show_directions()
         # Calculate steps and walking time
-        steps = results.convert_to_steps(distance)
-        walking_time = results.estimate_walking_time(distance)
-
+        steps = results.convert_meters_to_steps(distance_in_meters)
+        walking_time = results.estimate_walking_time(distance_in_meters)
+        
         # Add trip stats to all-time stats
         stats.update_stats(steps, walking_time)
+
+        # Display directions and stats for that trip
+        stats_str = results.get_formatted_stats(steps, walking_time)
+        start_again = results.show_directions(directions, stats_str)
 
         # Q: Go back to start menu or quit program?
         if start_again is True:
