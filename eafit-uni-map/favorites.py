@@ -37,7 +37,9 @@ def add_favorites(all_places: list):
             all_places.remove(favorite)
 
     try:
-        favorites_from_pick = pick(all_places, 'Select favorites to add with SPACE', multiselect=True,
+        favorites_from_pick = pick(all_places,
+                                   'Select one or more with SPACE and confirm with ENTER',
+                                   multiselect=True,
                                    min_selection_count=1)
     finally:
         favorites_to_add = []
@@ -59,7 +61,9 @@ def remove_favorites():
         except StopIteration:
             already_favorites = []
     try:
-        favorites_from_pick = pick(already_favorites, 'Select favorites to remove with SPACE', multiselect=True,
+        favorites_from_pick = pick(already_favorites,
+                                   'Select one or more with SPACE and confirm with ENTER',
+                                   multiselect=True,
                                    min_selection_count=1)
     finally:
         # extract the A,B,C values (etc.) from the list of tuples
@@ -103,13 +107,21 @@ def is_there_at_least_one_not_favorite(all_places: list):
         return True
 
 
-def which_favorites_action(possible_actions: list, all_places: list):
-    title = 'Edit favorites:'
-    action_on_favorites, index = pick(possible_actions, title)
-    if action_on_favorites == 'Add':
+def should_add_favorites(possible_actions: list, all_places: list) -> None:
+    # -1 since choice.value expects an Option with value
+    possible_actions.append(Option('Go back', -1))
+    title = 'Pick an option (or go back)'
+
+    choice, index = pick(possible_actions, title)
+    user_wants_to_add_favorites = choice.value
+
+    if user_wants_to_add_favorites is True:
         add_favorites(all_places)
-    else:
+    elif user_wants_to_add_favorites is False:
         remove_favorites()
+    else:
+        # Abort editing
+        pass
 
 
 # def change_favorites(options):

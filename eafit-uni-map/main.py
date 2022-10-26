@@ -6,6 +6,7 @@ import stats
 import config
 
 import networkx as nx
+from pick import Option
 
 
 def main():
@@ -17,7 +18,7 @@ def main():
     )
 
     # Get all-time stats
-    current_stats = stats.get_json_as_tuple()
+    current_stats = stats.get_formatted_stats()
 
     # Pass stats to main menu function
     if choice.select_travel(current_stats) is True:
@@ -40,18 +41,18 @@ def main():
         directions = nx.dijkstra_path(Graph, location, destination)
 
         # Get length of that shortest path
-        distance = nx.dijkstra_path_length(Graph, location, destination)
+        distance_in_meters = nx.dijkstra_path_length(Graph, location, destination)
 
-        # Display directions and stats for that trip
-        start_again = results.show_directions(directions, distance)
-
-        # TODO Pass data directly to show_directions()
         # Calculate steps and walking time
-        steps = results.convert_to_steps(distance)
-        walking_time = results.estimate_walking_time(distance)
+        steps = results.convert_meters_to_steps(distance_in_meters)
+        walking_time = results.estimate_walking_time(distance_in_meters)
 
         # Add trip stats to all-time stats
         stats.update_stats(steps, walking_time)
+
+        # Display directions and stats for that trip
+        stats_str = results.get_formatted_stats(steps, walking_time)
+        start_again = results.show_directions(directions, stats_str)
 
         # Q: Go back to start menu or quit program?
         if start_again is True:
@@ -63,12 +64,12 @@ def main():
 
         all_places = list(Graph.nodes)
         if favorites.is_there_at_least_one_not_favorite(all_places):
-            possible_actions.append('Add')
+            possible_actions.append(Option('Add', True))
         if favorites.is_there_at_least_one_favorite():
-            possible_actions.append('Remove')
+            possible_actions.append(Option('Remove', False))
 
         # Q: Add or remove favorites?
-        favorites.which_favorites_action(possible_actions, all_places)
+        favorites.should_add_favorites(possible_actions, all_places)
 
         # Go back to start menu
         main()
