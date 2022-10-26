@@ -46,7 +46,7 @@ def main():
         # Calculate steps and walking time
         steps = results.convert_meters_to_steps(distance_in_meters)
         walking_time = results.estimate_walking_time(distance_in_meters)
-        
+
         # Add trip stats to all-time stats
         stats.update_stats(steps, walking_time)
 
