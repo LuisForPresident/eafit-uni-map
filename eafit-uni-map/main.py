@@ -12,7 +12,7 @@ from pick import Option
 def main():
     # Create graph from edgelist file
     Graph = nx.read_weighted_edgelist(
-        config.graph_path,
+        config.GRAPH_PATH,
         comments='#',
         delimiter=','  # csv-like
     )

@@ -4,7 +4,7 @@ import config
 
 
 def get_stats_dict() -> dict:
-    with open(config.stats_path) as file:
+    with open(config.STATS_PATH) as file:
         return json.load(file)
 
 
@@ -32,7 +32,7 @@ def get_formatted_stats() -> str:
 
 
 def save_dict_as_json(json_object: dict) -> None:
-    with open(config.stats_path, mode='w') as file:
+    with open(config.STATS_PATH, mode='w') as file:
         json.dump(json_object, file,
                   indent=2)  # Prettify json
 
