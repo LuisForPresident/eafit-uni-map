@@ -35,30 +35,15 @@ def add_favorites(all_places: list) -> None:
     store_favorites(updated_favorites)
 
 
-def remove_favorites():
-    with open(config.FAVORITES_PATH, mode='r') as favorites:
-        try:
-            already_favorites = next(csv.reader(favorites, delimiter=','))
-        except StopIteration:
-            already_favorites = []
-    try:
-        favorites_from_pick = pick(already_favorites,
-                                   'Select one or more with SPACE and confirm with ENTER',
-                                   multiselect=True,
-                                   min_selection_count=1)
-    finally:
-        # extract the A,B,C values (etc.) from the list of tuples
-        favorites_to_remove = []
-        for favorite in favorites_from_pick:
-            favorites_to_remove.append(favorite[0])
-        # favorites_to_remove = list(list(zip(*favorites_from_pick))[0])
-
-        for favorite in favorites_to_remove:
-            if favorite in already_favorites:
-                already_favorites.remove(favorite)
-        already_favorites.sort()
-        with open(config.FAVORITES_PATH, mode='w') as final_favorites:
-            csv.writer(final_favorites, delimiter=',').writerow(already_favorites)
+def remove_favorites() -> None:
+    current_favorites = retrieve_favorites()
+    favorites_to_remove = pick(current_favorites,
+                               'SPACE to select one or more\nENTER to remove',
+                               multiselect=True,
+                               min_selection_count=1)
+    favorites_to_remove = [text for text, index in favorites_to_remove]
+    updated_favorites = list(set(current_favorites) - set(favorites_to_remove))
+    store_favorites(updated_favorites)
 
 
 def is_there_at_least_one_favorite():
