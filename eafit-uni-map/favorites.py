@@ -16,13 +16,6 @@ def choose_from_favorites() -> bool:
     return decision.value
 
 
-def create_favorites_list():
-    with open(config.FAVORITES_PATH, mode='r') as favorites:
-        try:
-            already_favorites = next(csv.reader(favorites, delimiter=','))
-            return already_favorites
-        except StopIteration:
-            choose_from_favorites()
 
 
 def add_favorites(all_places: list):
@@ -122,17 +115,3 @@ def should_add_favorites(possible_actions: list, all_places: list) -> None:
     else:
         # Abort editing
         pass
-
-
-# def change_favorites(options):
-#     with open('favorites.csv', mode='write') as csv_file:
-#         favorite_changer = csv.writer(csv_file, delimiter=',')
-#         favorite_changer.writerow(options)
-
-
-# # TODO Refactor the read favorites code
-# def read_favorites(favorites_path):
-#     with open(favorites_path, mode='read') as csv_file:
-#         favorite_reader = csv.reader(csv_file, delimiter=',')
-#         options = next(favorite_reader)
-#     return options
