@@ -15,6 +15,13 @@ def choose_from_favorites() -> bool:
     return decision.value
 
 
+def retrieve_favorites() -> list:
+    with open(config.FAVORITES_PATH, mode='r') as file:
+        return json.load(file)
+
+def store_favorites(new_favorites: list) -> None:
+    with open(config.FAVORITES_PATH, mode='w') as file:
+        json.dump(new_favorites, file, indent=2)
 
 
 def add_favorites(all_places: list):
