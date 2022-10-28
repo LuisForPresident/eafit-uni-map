@@ -8,7 +8,7 @@ def choose_from_favorites() -> bool:
     options = [
         Option('All options', False),
     ]
-    if is_there_at_least_one_favorite() is True:
+    if can_remove_favorites() is True:
         options.append(Option('Favorites', True))
     title = 'Choose destination from:'
     decision, index = pick(options, title, indicator='->')
@@ -46,31 +46,20 @@ def remove_favorites() -> None:
     store_favorites(updated_favorites)
 
 
-def is_there_at_least_one_favorite():
-    with open(config.FAVORITES_PATH, mode='r') as favorites:
-        try:
-            if next(csv.reader(favorites, delimiter=',')):
-                return True
-            else:
-                return False
-        except StopIteration:
-            return False
-
-
-def is_there_at_least_one_not_favorite(all_places: list):
-    with open(config.FAVORITES_PATH, mode='r') as favorites:
-        try:
-            already_favorites = next(csv.reader(favorites, delimiter=','))
-        except StopIteration:
-            return True
-
-    for favorite in already_favorites:
-        if favorite in all_places:
-            all_places.remove(favorite)
-    if len(all_places) == 0:
-        return False
-    else:
+def can_remove_favorites() -> bool:
+    current_favorites = retrieve_favorites()
+    if current_favorites:  # if list is not empty
         return True
+    else:
+        return False
+
+
+def can_add_favorites(all_places: list) -> bool:
+    current_favorites = retrieve_favorites()
+    if list(set(all_places) - set(current_favorites)):  # if list is not empty
+        return True
+    else:
+        return False
 
 
 def should_add_favorites(possible_actions: list, all_places: list) -> None:

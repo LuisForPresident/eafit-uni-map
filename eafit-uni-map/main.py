@@ -63,9 +63,9 @@ def main():
         possible_actions = []
 
         all_places = list(Graph.nodes)
-        if favorites.is_there_at_least_one_not_favorite(all_places):
+        if favorites.can_add_favorites(all_places):
             possible_actions.append(Option('Add', True))
-        if favorites.is_there_at_least_one_favorite():
+        if favorites.can_remove_favorites():
             possible_actions.append(Option('Remove', False))
 
         # Q: Add or remove favorites?
