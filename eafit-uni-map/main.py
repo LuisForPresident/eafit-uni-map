@@ -30,7 +30,7 @@ def main():
         # Choose destination from: All options or favorites?
         from_favorites = favorites.choose_from_favorites()
         if from_favorites is True:
-            destination_options = favorites.create_favorites_list()
+            destination_options = favorites.retrieve_favorites()
         else:
             destination_options = location_options
 
