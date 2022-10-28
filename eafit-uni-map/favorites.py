@@ -24,33 +24,15 @@ def store_favorites(new_favorites: list) -> None:
         json.dump(new_favorites, file, indent=2)
 
 
-def add_favorites(all_places: list):
-    with open(config.FAVORITES_PATH, mode='r') as favorites:
-        try:
-            already_favorites = next(csv.reader(favorites, delimiter=','))
-        except StopIteration:
-            already_favorites = []
-
-    for favorite in already_favorites:
-        if favorite in all_places:
-            all_places.remove(favorite)
-
-    try:
-        favorites_from_pick = pick(all_places,
-                                   'Select one or more with SPACE and confirm with ENTER',
-                                   multiselect=True,
-                                   min_selection_count=1)
-    finally:
-        favorites_to_add = []
-        for favorite in favorites_from_pick:
-            favorites_to_add.append(favorite[0])
-
-        # so it doesn't overwrite the existing favorites
-        favorites_to_add.extend(already_favorites)
-        favorites_to_add.sort()
-
-        with open(config.FAVORITES_PATH, mode='w') as final_favorites:
-            csv.writer(final_favorites, delimiter=',').writerow(favorites_to_add)
+def add_favorites(all_places: list) -> None:
+    current_favorites = retrieve_favorites()
+    favorites_to_add = pick(list(set(all_places) - set(current_favorites)),
+                            'SPACE to select one or more\nENTER to add',
+                            multiselect=True,
+                            min_selection_count=1)
+    favorites_to_add = [text for text, index in favorites_to_add]
+    updated_favorites = list(set(current_favorites) ^ set(favorites_to_add))
+    store_favorites(updated_favorites)
 
 
 def remove_favorites():
