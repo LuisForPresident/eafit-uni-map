@@ -1,4 +1,3 @@
-
 # EAFIT University Map
 
 A Python application to get directions from A to B on EAFIT's main campus based on "landmarks", so to speak.
@@ -82,6 +81,12 @@ Since this is the authors coursework, we won't review pull requests.
 ### Feedback
 
 Create an issue and @ us (I doubt anyone will ever do this).
+
+### Acknowledgements
+
+I’d like to thank:
+
+- [Wang Dàpéng (@wong2)](https://github.com/wong2) for writing the [`pick`](https://pypi.org/project/pick/) module,
 
 ### License
 
