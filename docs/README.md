@@ -12,10 +12,9 @@ A Python application to get directions from A to B on EAFIT's main campus based 
 Project for the first-semester course "Principles of Software Development" (ST0243) taught at EAFIT University (Medellín, Colombia) by prof Paola Vallejo.
 
 
-## Demo (pending)
+## Demo
 
-Insert gif or link to demo
-
+![Demo of v2022.10.21-alpha](../gif/v2022.10.21-alpha.gif)
 
 ## Run Locally (pending)
 
