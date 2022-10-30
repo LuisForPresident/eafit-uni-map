@@ -86,6 +86,7 @@ Create an issue and @ us (I doubt anyone will ever do this).
 I’d like to thank:
 
 - [Wang Dàpéng (@wong2)](https://github.com/wong2) for writing the [`pick`](https://pypi.org/project/pick/) module,
+- [Viviana Hoyos-Sierra](https://github.com/Vivi-Hoyos2710) (TA) for the initial implementation of Dijkstra’s algorithm,
 
 ### License
 
