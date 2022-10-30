@@ -64,22 +64,21 @@ What did you learn while building this project? What challenges did you face and
 
 ## Appendix
 
-### Software requirements
-
-See the [wiki page](https://github.com/LuisForPresident/eafit-uni-map/wiki/Requisitos-de-software).
-
 ### Related projects
 
 - [Adrephos/EAFIT-maps](https://github.com/Adrephos/EAFIT-maps) (2021) [Java, JavaScript, Node.js, React]
+
 - [sicomEAFIT/CampusMovil-EAFIT](https://github.com/sicomEAFIT/CampusMovil-EAFIT) (2015) [Objective-C, Java, Ruby]
 
 ### Contributing
 
-Since this is the authors coursework, we won't review pull requests.
+Since this is the author’s coursework, I won't review pull requests.
 
 ### Feedback
 
-Create an issue and @ us (I doubt anyone will ever do this).
+Star the repo if you like it.
+
+Stare at the screen if you don’t :)
 
 ### Acknowledgements
 
@@ -90,4 +89,4 @@ I’d like to thank:
 
 ### License
 
-We were explicitly told not to license this repo.
+(Pending!)
