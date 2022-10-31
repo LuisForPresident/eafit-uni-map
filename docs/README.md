@@ -89,6 +89,6 @@ I’d like to thank:
 
 ### License
 
-Released under the BSD 3-Clause license (see [LICENSE.md](./LICENSE.md)):
+Released under the BSD 3-Clause license (see [LICENSE.md](../LICENSE.md)):
 
 Copyright (c) 2022, Luis M. Torres-Villegas All rights reserved.
