@@ -1,8 +1,11 @@
-Idiomas,Puente,133
-Puente,Humanidades,196
+Idiomas,Puente de Idiomas,133
+Puente de Idiomas,Humanidades,196
 Humanidades,Biblioteca,70
 Humanidades,Converso,50
 Biblioteca,Plazoleta,45
 Plazoleta,Dogger,50
 Dogger,Admisiones,50
-Admisiones,Auditorio,30
+Admisiones,Auditorio Fundadores,30
+Auditorio Fundadores,Bloque de Derecho,49
+Bloque de Derecho,Bloque de Música,30
+Auditorio Fundadores,Escuela de Administración,50
