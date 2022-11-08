@@ -1,5 +1,4 @@
 import math
-from collections import deque
 from pick import pick, Option
 from random import choice, random
 
@@ -16,7 +15,7 @@ def show_directions(directions: list, stats: str) -> bool:
     return decision.value
 
 
-def join_directions(directions: deque) -> str:
+def join_directions(directions: list) -> str:
     steps: list = []
     message: str
     options = [
