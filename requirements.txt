@@ -1,2 +1,2 @@
-pick==2.0.2
+pick==2.1.0
 networkx==2.6.3
