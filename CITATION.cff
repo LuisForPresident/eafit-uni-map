@@ -1,0 +1,38 @@
+# This CITATION.cff file was generated with cffinit. Visit
+# https://citation-file-format.github.io/cff-initializer-javascript/
+# to generate yours today!
+
+cff-version: 1.2.0
+title: EAFIT University Map
+message: >-
+  If you cite this software, please do so using the
+  metadata from this file.
+type: software
+authors:
+  - given-names: Luis M.
+    family-names: Torres-Villegas
+    affiliation: Universidad EAFIT
+identifiers:
+  - type: url
+    value: >-
+      https://github.com/LuisForPresident/eafit-uni-map/releases/tag/v2022.10.21-alpha
+    description: >-
+      The URL of version 2022.10.21-alpha of the
+      software
+repository-code: 'https://github.com/LuisForPresident/eafit-uni-map'
+abstract: >-
+  Get directions from A to B on EAFIT’s campus.
+  Project for the first-semester course "Principles
+  of Software Development" (ST0243), taught by Paola
+  Vallejo, @eafit.
+keywords:
+  - university-project
+  - curses
+  - python
+  - networkx
+  - campus-map
+  - eafit
+  - st0243
+commit: 8d9f6271f635e9740a6ea159b8d6fa4121d11e51
+version: 2022.10.21-alpha
+date-released: '2022-10-21'
