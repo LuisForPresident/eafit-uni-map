@@ -13,6 +13,7 @@ def create_options() -> list:
 
 
 def get_location(options: list) -> str:
+    options.sort()
     title = 'Select your current location:'
     location, index = pick(options, title, indicator='->')
     return location
