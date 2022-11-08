@@ -1,11 +1,94 @@
-Idiomas,Puente de Idiomas,133
-Puente de Idiomas,Humanidades,196
-Humanidades,Biblioteca,70
-Humanidades,Converso,50
-Biblioteca,Plazoleta,45
-Plazoleta,Dogger,50
-Dogger,Admisiones,50
-Admisiones,Auditorio Fundadores,30
-Auditorio Fundadores,Bloque de Derecho,49
-Bloque de Derecho,Bloque de Música,30
-Auditorio Fundadores,Escuela de Administración,50
+Idiomas EAFIT;Puente de Idiomas;133
+Puente de Idiomas;Escuela de Humanidades y de Ciencias (Bloque 38);196
+Escuela de Humanidades y de Ciencias (Bloque 38);Biblioteca Luis Echavarría Villegas;70
+Escuela de Humanidades y de Ciencias (Bloque 38);Bloque 35;70
+Bloque 35;Bloque 34;55
+Bloque 34;Bloque 33;50
+Bloque 33;Biblioteca Luis Echavarría Villegas;100
+Biblioteca Luis Echavarría Villegas;Plazoleta del Estudiante;45
+Plazoleta del Estudiante;Dogger;50
+Bicicletas eléctricas;Plazoleta del Estudiante;20
+Dogger;Portería norte de Las Vegas;84
+Admisiones (Bloque 29);Dogger;50
+Admisiones (Bloque 29);Auditorio Fundadores;60
+Auditorio Fundadores;Escuela de Administración, Economía, y Finanzas;50
+Escuela de Administración, Economía, y Finanzas;Bloque 18 de Rectoría;60
+Centro Argos para la Innovación;Bloque 18 de Rectoría;60
+Escuela de Humanidades y de Ciencias (Bloque 38);Escultura Propileos;50
+Escultura Propileos;Bicicletas eléctricas;110
+Escultura Propileos;Café Con.verso;10
+Plazoleta del Estudiante;Ágora;30
+Ágora;Admisiones (Bloque 29);50
+Dogger;Jardín Efímero;46
+Jardín Efímero;Portería norte de Las Vegas;60
+Centro de Visitantes (Bloque 31);Jardín Efímero;27
+Centro de Visitantes (Bloque 31);Portería norte de Las Vegas;37
+Portería norte de Las Vegas;Cancha de voleibol;94
+Cancha de voleibol;Piscina;33
+Admisiones (Bloque 29);Bloque 3;62
+Bloque 18 de Rectoría;Cajeros Automáticos (ATM);36
+Bloque de Derecho;Auditorio Fundadores;49
+Bloque de Música;Bloque de Derecho;30
+Escuela de Humanidades y de Ciencias (Bloque 38);Camerinos (Bloque 39);14
+Camerinos (Bloque 39);Instituto de Capacitación e Investigación del Plástico y el Caucho (ICIPC);40
+Instituto de Capacitación e Investigación del Plástico y el Caucho (ICIPC);Canchas de tenis;60
+Instituto de Capacitación e Investigación del Plástico y el Caucho (ICIPC);Cafetería secundaria;42
+Gimnasio al aire libre;Camerinos (Bloque 39);15
+Gimnasio al aire libre;Canchas atléticas;44
+Canchas atléticas;Canchas de tenis;57
+Escuela de Humanidades y de Ciencias (Bloque 38);Cafetería secundaria;66
+Cafetería secundaria;Bloque 35;40
+Café Con.verso;Parqueadero norte de autos;40
+Parqueadero norte de autos;Bicicletas eléctricas;100
+Bicicletas eléctricas;Jardín Efímero;25
+Piscina;Cafetería Principal;50
+Piscina;Bloque 7;80
+Bloque 7;Cafetería Principal;50
+Cafetería Principal;Bloque 18 de Rectoría;40
+Cafetería Principal;Bloque 17;25
+Bloque 17;Bloque 16;20
+Bloque 16;Cancha sintética (de fútbol y frisbee);30
+Bloque 16;Bloque 15;33
+Bloque 15;Bloque 14;33
+Bloque 14;Bloque 13;20
+Bloque 14;Cancha sintética (de fútbol y frisbee);10
+Bloque 13;Subway;35
+Subway;Parqueadero de motos;50
+Parqueadero de motos;Parqueadero sur de autos (visitantes);34
+Parqueadero sur de autos (visitantes);Portería sur de Las Vegas;34
+Portería sur de Las Vegas;Desarrollo Artístico (Bloque 12);30
+Desarrollo Artístico (Bloque 12);Bloque 9 (Universidad de los Niños);35
+Bloque 9 (Universidad de los Niños);Bloque 10;12
+Bloque 10;Portería de la Avenida Regional;25
+Portería de la Avenida Regional;Bloque 19 de Ingeniería;85
+Bloque 19 de Ingeniería;Subway;58
+Bloque 19 de Ingeniería;Bloque 9 (Universidad de los Niños);60
+Librería Acentos;Bloque 18 de Rectoría;30
+Café Las Hermosas;Centro Argos para la Innovación;20
+Escuela de Administración, Economía, y Finanzas;Estación de carga Celsia;22
+Estación de carga Celsia;Café Las Hermosas;35
+Estación de carga Celsia;Centro Argos para la Innovación;40
+Bloque 7;Gimnasio Vivo;20
+Idiomas EAFIT;Portería de Idiomas;70
+Bloque 17;La Bodeguita Minimarket;10
+Bloque 17;Sala de descanso;6
+Laboratorio financiero;Bloque 17;7
+Bloque 16;Bloque 23;45
+Bloque 23;Taller de Metalmecánica (Bloque 22);33
+Taller de Metalmecánica (Bloque 22);Laboratorio de Sismorresistencia;45
+Laboratorio de Sismorresistencia;Bloque 19 de Ingeniería;27
+Bloque de Derecho;Auditorio Fabricato;20
+Librería Acentos;Cafetería Principal;30
+Bloque 18 de Rectoría;Bloque 3;70
+Librería Acentos;Bloque 3;50
+Subway;Parqueadero sur de autos (visitantes);40
+Parqueadero sur de autos (visitantes);Desarrollo Artístico (Bloque 12);30
+Cafetería Principal;Cancha sintética (de fútbol y frisbee);44
+Portería sur de Las Vegas;La Carpita Roja;84
+La Carpita Roja;Casa 6 del Consultorio Jurídico y Centro de Conciliación;80
+Casa 6 del Consultorio Jurídico y Centro de Conciliación;Casa 4 de proyectos Innovación EAFIT;33
+Casa 4 de proyectos Innovación EAFIT;Casa 5 del Instituto Confucio;58
+Casa 5 del Instituto Confucio;Casa 7 del Centro de Estudios Urbanos y Ambientales (Urbam);20
+Casa 7 del Centro de Estudios Urbanos y Ambientales (Urbam);Casa de Innovación y Casa de Egresados;60
+Parqueadero de motos;Cancha sintética (de fútbol y frisbee);30
+Centro de Administración Documental;Biblioteca Luis Echavarría Villegas;20
