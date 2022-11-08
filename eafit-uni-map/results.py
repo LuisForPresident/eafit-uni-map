@@ -1,6 +1,7 @@
 import math
 from collections import deque
 from pick import pick, Option
+from random import choice, random
 
 
 def show_directions(directions: list, stats: str) -> bool:
@@ -18,14 +19,20 @@ def show_directions(directions: list, stats: str) -> bool:
 def join_directions(directions: deque) -> str:
     steps: list = []
     message: str
+    options = [
+        '. Go to ',
+        '. Follow ',
+        '. Continue through ',
+        '. Walk till you see ',
+        '. Stop to contemplate '
+    ]
     for step, place in enumerate(directions, 1):
         if step == 1:
             message = '. Start from '
         elif step == len(directions):
             message = '. Arrive at '
-        # TODO Create a random message generator
         else:
-            message = '. Go to '
+            message = choice(options)
         steps.append(str(step) + message + place)
     steps_str = '\n'.join(steps)
     return steps_str
