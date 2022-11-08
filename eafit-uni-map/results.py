@@ -26,6 +26,10 @@ def join_directions(directions: deque) -> str:
         '. Walk till you see ',
         '. Stop to contemplate '
     ]
+    places_str = 'From {} to {}\n\n'.format(
+        directions[0],
+        directions[len(directions)-1])
+
     for step, place in enumerate(directions, 1):
         if step == 1:
             message = '. Start from '
@@ -35,7 +39,7 @@ def join_directions(directions: deque) -> str:
             message = choice(options)
         steps.append(str(step) + message + place)
     steps_str = '\n'.join(steps)
-    return steps_str
+    return places_str + steps_str
 
 
 def create_output_title(directions_str: str, stats_str: str) -> str:
