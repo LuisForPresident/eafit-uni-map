@@ -15,7 +15,7 @@ Project for the first-semester course "Principles of Software Development" (ST02
 ## Demo
 
 ![Demo of v2022.10.21-alpha](../gif/v2022.10.21-alpha.gif)
-
+<!-- 
 ## Run Locally (pending)
 
 Clone the project
@@ -40,11 +40,11 @@ Start the server
 
 ```bash
   npm run start
-```
+``` -->
 
 
 
-
+<!-- 
 ## Screenshots (pending)
 
 ![App Screenshot]()
@@ -60,7 +60,7 @@ What did you learn while building this project? What challenges did you face and
 4. Check your terminal config files.
 5. Don't overdo it with the folders.
 6. `CITATION.cff` is a thing
-7. `brew update --auto-update` shouldn't exist.
+7. `brew update --auto-update` shouldn't exist. -->
 
 ## Appendix
 
