@@ -14,7 +14,7 @@ def main():
     Graph = nx.read_weighted_edgelist(
         config.GRAPH_PATH,
         comments='#',
-        delimiter=','  # csv-like
+        delimiter=';'  # csv-like
     )
 
     # Get all-time stats
