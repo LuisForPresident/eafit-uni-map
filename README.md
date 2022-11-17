@@ -14,7 +14,7 @@ Project for the first-semester course "Principles of Software Development" (ST02
 
 ## Demo
 
-![Demo of v2022.10.21-alpha](../gif/v2022.10.21-alpha.gif)
+![Demo of v2022.10.21-alpha](./gif/v2022.10.21-alpha.gif)
 <!-- 
 ## Run Locally (pending)
 
