@@ -1,4 +1,4 @@
-import math
+from math import ceil
 from random import choice
 
 from pick import pick, Option
@@ -44,13 +44,13 @@ def create_output_title(directions_str: str, stats_str: str) -> str:
 
 def convert_meters_to_steps(distance_in_meters: int) -> int:
     number_of_steps = distance_in_meters / 0.762  # Reference: 1 step = 0.762 meters
-    number_of_steps = math.ceil(number_of_steps)  # Round to integer
+    number_of_steps = ceil(number_of_steps)  # Round to integer
     return number_of_steps
 
 
 def estimate_walking_time(distance_in_meters: int) -> int:
     walking_time = distance_in_meters / 1.788
-    walking_time = math.ceil(walking_time)
+    walking_time = ceil(walking_time)
     return walking_time
 
 
