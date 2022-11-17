@@ -1,4 +1,4 @@
-import csv
+from csv import reader
 
 from pick import pick, Option
 
