@@ -29,13 +29,13 @@ Project for the first-semester course "Principles of Software Development" (ST02
 2. Go to the project directory (or wherever you stored it)
 
     ```bash
-    $ cd eafit-uni-map
+    cd eafit-uni-map
     ```
 
 3. Install the 2 dependencies using `pip`
 
     ```bash
-    $ pip install -r requirements.txt
+    pip install -r requirements.txt
     ```
 
 4. Star the repository (xd).
@@ -43,7 +43,7 @@ Project for the first-semester course "Principles of Software Development" (ST02
 5. Run the program (it's nested)
 
     ```bash
-    $ python3 eafit-uni-map/main.py
+    python3 eafit-uni-map/main.py
     ```
 
 - _To whoever tries to follow these steps:_
