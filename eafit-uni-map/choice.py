@@ -40,21 +40,9 @@ def select_travel(stats: tuple) -> bool:
 
 
 def get_start_title(stats: str) -> str:
-    stats_to_display = "You have walked {0}".format(stats)
+    stats_to_display = f"You have walked {stats}"
     start_title = "EAFIT University Map - 2022"
     authors = "Luis M. Torres-Villegas & Miguel Suárez-Obando"
     repository_url = "https://github.com/LuisForPresident/eafit-uni-map/"
     welcome_message = "Welcome! Get directions based on some landmarks on campus."
-    # TODO Format the return without concatenating with plus signs
-    return (
-        "\n"
-        + start_title
-        + "\n"
-        + authors
-        + "\n"
-        + repository_url
-        + "\n\n"
-        + welcome_message
-        + "\n\n"
-        + stats_to_display
-    )
+    return f"\n{start_title}\n{authors}\n{repository_url}\n\n{welcome_message}\n\n{stats_to_display}"

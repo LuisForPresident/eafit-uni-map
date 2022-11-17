@@ -20,13 +20,13 @@ def get_formatted_stats() -> str:
         minutes = int(timespan / 60)
         seconds = int(timespan % 60)
         if minutes >= 1:
-            formatted_time = "{0} mins and {1} secs".format(minutes, seconds)
+            formatted_time = f"{minutes} mins and {seconds} secs"
         else:
-            formatted_time = "{0} secs".format(seconds)
+            formatted_time = f"{seconds} secs"
     else:
         formatted_time = "0 secs"
 
-    formatted_stats: str = "{0} steps in {1}".format(distance, formatted_time)
+    formatted_stats: str = f"{distance} steps in {formatted_time}"
 
     return formatted_stats
 

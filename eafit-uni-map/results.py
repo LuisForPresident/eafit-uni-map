@@ -23,9 +23,7 @@ def join_directions(directions: list) -> str:
         ". Walk till you see ",
         ". Stop to contemplate ",
     ]
-    places_str = "From {} to {}\n\n".format(
-        directions[0], directions[len(directions) - 1]
-    )
+    places_str = f"From {directions[0]} to {directions[len(directions) - 1]}\n\n"
 
     for step, place in enumerate(directions, 1):
         if step == 1:
@@ -40,7 +38,7 @@ def join_directions(directions: list) -> str:
 
 
 def create_output_title(directions_str: str, stats_str: str) -> str:
-    final_str = directions_str + "\n\n" + stats_str
+    final_str = f"{directions_str}\n\n{stats_str}"
     return final_str
 
 
@@ -66,12 +64,12 @@ def get_formatted_stats(steps, walking_time) -> str:
         minutes = int(timespan / 60)
         seconds = int(timespan % 60)
         if minutes >= 1:
-            formatted_time = "{0} mins and {1} secs".format(minutes, seconds)
+            formatted_time = f"{minutes} mins and {seconds} secs"
         else:
-            formatted_time = "{0} secs".format(seconds)
+            formatted_time = f"{seconds} secs"
     else:
         formatted_time = "0 secs"
 
-    formatted_stats: str = "{0} steps in {1}".format(distance, formatted_time)
+    formatted_stats: str = f"{distance} steps in {formatted_time}"
 
     return formatted_stats
