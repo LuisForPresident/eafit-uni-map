@@ -12,9 +12,7 @@ from pick import Option
 def main():
     # Create graph from edgelist file
     Graph = nx.read_weighted_edgelist(
-        config.GRAPH_PATH,
-        comments='#',
-        delimiter=';'  # csv-like
+        config.GRAPH_PATH, comments="#", delimiter=";"  # csv-like
     )
 
     # Get all-time stats
@@ -64,9 +62,9 @@ def main():
 
         all_places = list(Graph.nodes)
         if favorites.can_add_favorites(all_places):
-            possible_actions.append(Option('Add', True))
+            possible_actions.append(Option("Add", True))
         if favorites.can_remove_favorites():
-            possible_actions.append(Option('Remove', False))
+            possible_actions.append(Option("Remove", False))
 
         # Q: Add or remove favorites?
         favorites.should_add_favorites(possible_actions, all_places)
@@ -75,5 +73,5 @@ def main():
         main()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
