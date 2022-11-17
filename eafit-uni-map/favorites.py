@@ -1,4 +1,5 @@
 import json
+
 from pick import pick, Option
 
 import config

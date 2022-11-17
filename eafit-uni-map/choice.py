@@ -1,6 +1,6 @@
-from pick import pick, Option
-
 import csv
+
+from pick import pick, Option
 
 import config
 

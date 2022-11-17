@@ -1,6 +1,7 @@
 import math
+from random import choice
+
 from pick import pick, Option
-from random import choice, random
 
 
 def show_directions(directions: list, stats: str) -> bool:
