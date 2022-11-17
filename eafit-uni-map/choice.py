@@ -1,15 +1,4 @@
-from csv import reader
-
 from pick import pick, Option
-
-import config
-
-
-def create_options() -> list:
-    with open(config.GRAPH_PATH, encoding="utf-8") as csv_file:
-        parsed_csv = csv.reader(csv_file)
-        first_row = next(parsed_csv)
-    return first_row
 
 
 def get_location(options: list) -> str:
