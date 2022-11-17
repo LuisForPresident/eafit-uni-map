@@ -31,19 +31,9 @@ def get_formatted_stats() -> str:
     return formatted_stats
 
 
-def save_dict_as_json(json_object: dict) -> None:
-    with open(config.STATS_PATH, mode="w", encoding="utf-8") as file:
-        dump(json_object, file, indent=2)  # Prettify json
-
-
-def sum_new_stats(steps: int, walking_time: int) -> dict:
+def update_stats(steps: int, walking_time: int) -> None:
     stats = get_stats_dict()
     stats["distance"] += steps
     stats["time"] += walking_time
-    return stats
-
-
-def update_stats(steps: int, walking_time: int) -> None:
-    # This seems redundant, but I find it better to decompose
-    new_stats = sum_new_stats(steps, walking_time)
-    save_dict_as_json(new_stats)
+    with open(config.STATS_PATH, mode="w", encoding="utf-8") as file:
+        dump(stats, file, indent=2)  # Prettify json
