@@ -15,34 +15,44 @@ Project for the first-semester course "Principles of Software Development" (ST02
 ## Demo
 
 ![Demo of v2022.10.21-alpha](./gif/v2022.10.21-alpha.gif)
-<!-- 
-## Run Locally (pending)
 
-Clone the project
+## Run Locally
 
-```bash
-  git clone https://link-to-project
-```
+1. Clone the project
 
-Go to the project directory
+    ```brainfuck
+    # you should know how to do that xd
+    ```
 
-```bash
-  cd my-project
-```
+    > (Just kidding. I simply don't want bots cloning the repo.)
 
-Install dependencies
+2. Go to the project directory (or wherever you stored it)
 
-```bash
-  npm install
-```
+    ```bash
+    $ cd eafit-uni-map
+    ```
 
-Start the server
+3. Install the 2 dependencies using `pip`
 
-```bash
-  npm run start
-``` -->
+    ```bash
+    $ pip install -r requirements.txt
+    ```
 
+4. Star the repository (xd).
 
+5. Run the program (it's nested)
+
+    ```bash
+    $ python3 eafit-uni-map/main.py
+    ```
+
+- _To whoever tries to follow these steps:_
+
+    I think the file path string literals won't work for you.
+
+    I still have to fix that.
+
+    (But, hey, it works on my machine!)
 
 <!-- 
 ## Screenshots (pending)
