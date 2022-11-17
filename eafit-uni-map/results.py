@@ -5,8 +5,8 @@ from pick import pick, Option
 
 
 def show_directions(directions: list, stats: str) -> bool:
-    directions = join_directions(directions)
-    title = create_output_title(directions, stats)
+    directions: str = join_directions(directions)
+    title: str = f"{directions}\n\n{stats}"
 
     options = [Option("Go back to main menu", True), Option("Quit program", False)]
     decision, index = pick(options, title, indicator="->")
@@ -35,11 +35,6 @@ def join_directions(directions: list) -> str:
         steps.append(str(step) + message + place)
     steps_str = "\n".join(steps)
     return places_str + steps_str
-
-
-def create_output_title(directions_str: str, stats_str: str) -> str:
-    final_str = f"{directions_str}\n\n{stats_str}"
-    return final_str
 
 
 def convert_meters_to_steps(distance_in_meters: int) -> int:
