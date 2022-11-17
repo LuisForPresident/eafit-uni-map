@@ -5,13 +5,13 @@ import stats
 
 import config
 
-import networkx as nx
+from networkx import read_weighted_edgelist, dijkstra_path, dijkstra_path_length
 from pick import Option
 
 
 def main():
     # Create graph from edgelist file
-    Graph = nx.read_weighted_edgelist(
+    Graph = read_weighted_edgelist(
         config.GRAPH_PATH, comments="#", delimiter=";"  # csv-like
     )
 
@@ -36,10 +36,10 @@ def main():
         destination = choice.get_destination(destination_options, location)
 
         # Compute the shortest path
-        directions = nx.dijkstra_path(Graph, location, destination)
+        directions = dijkstra_path(Graph, location, destination)
 
         # Get length of that shortest path
-        distance_in_meters = nx.dijkstra_path_length(Graph, location, destination)
+        distance_in_meters = dijkstra_path_length(Graph, location, destination)
 
         # Calculate steps and walking time
         steps = results.convert_meters_to_steps(distance_in_meters)
