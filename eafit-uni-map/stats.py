@@ -1,11 +1,11 @@
-import json
+from json import load, dump
 
 import config
 
 
 def get_stats_dict() -> dict:
     with open(config.STATS_PATH, encoding="utf-8") as file:
-        return json.load(file)
+        return load(file)
 
 
 def get_formatted_stats() -> str:
@@ -33,7 +33,7 @@ def get_formatted_stats() -> str:
 
 def save_dict_as_json(json_object: dict) -> None:
     with open(config.STATS_PATH, mode="w", encoding="utf-8") as file:
-        json.dump(json_object, file, indent=2)  # Prettify json
+        dump(json_object, file, indent=2)  # Prettify json
 
 
 def sum_new_stats(steps: int, walking_time: int) -> dict:

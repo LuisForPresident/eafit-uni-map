@@ -1,4 +1,4 @@
-import json
+from json import load, dump
 
 from pick import pick, Option
 
@@ -18,12 +18,12 @@ def choose_from_favorites() -> bool:
 
 def retrieve_favorites() -> list:
     with open(config.FAVORITES_PATH, mode="r", encoding="utf-8") as file:
-        return json.load(file)
+        return load(file)
 
 
 def store_favorites(new_favorites: list) -> None:
     with open(config.FAVORITES_PATH, mode="w", encoding="utf-8") as file:
-        json.dump(new_favorites, file, indent=2)
+        dump(new_favorites, file, indent=2)
 
 
 def add_favorites(all_places: list) -> None:
