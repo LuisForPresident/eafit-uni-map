@@ -1,14 +1,20 @@
+"""
+Access and update the stats file.
+"""
+
 from json import load, dump
 
 import config
 
 
 def get_stats_dict() -> dict:
+    """Returns time and distance as a dictionary."""
     with open(config.STATS_PATH, encoding="utf-8") as file:
         return load(file)
 
 
 def get_formatted_stats() -> str:
+    """Returns a formatted string with mins and secs."""
     current_stats = get_stats_dict()
 
     distance = str(current_stats["distance"])
@@ -32,6 +38,7 @@ def get_formatted_stats() -> str:
 
 
 def update_stats(steps: int, walking_time: int) -> None:
+    """Stores the new stats values for time and distance."""
     stats = get_stats_dict()
     stats["distance"] += steps
     stats["time"] += walking_time

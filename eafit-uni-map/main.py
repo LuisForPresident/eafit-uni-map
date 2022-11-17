@@ -1,3 +1,7 @@
+"""
+The program itself.
+"""
+
 import favorites
 import results
 import choice
@@ -10,6 +14,7 @@ from pick import Option
 
 
 def main():
+    """Runs the program itself."""
     # Create graph from edgelist file
     Graph = read_weighted_edgelist(
         config.GRAPH_PATH, comments="#", delimiter=";"  # csv-like

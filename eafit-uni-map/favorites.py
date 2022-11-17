@@ -1,3 +1,7 @@
+"""
+Add and remove places as favorites.
+"""
+
 from json import load, dump
 
 from pick import pick, Option
@@ -6,6 +10,9 @@ import config
 
 
 def choose_from_favorites() -> bool:
+    """Prompts user: is destination chosen from:
+    1) all
+    or 2) favorites?"""
     options = [
         Option("All options", False),
     ]
@@ -17,16 +24,19 @@ def choose_from_favorites() -> bool:
 
 
 def retrieve_favorites() -> list:
+    """Returns the list of favorites."""
     with open(config.FAVORITES_PATH, mode="r", encoding="utf-8") as file:
         return load(file)
 
 
 def store_favorites(new_favorites: list) -> None:
+    """Updates the favorites file."""
     with open(config.FAVORITES_PATH, mode="w", encoding="utf-8") as file:
         dump(new_favorites, file, indent=2)
 
 
 def add_favorites(all_places: list) -> None:
+    """Adds favorites to list."""
     current_favorites = retrieve_favorites()
     favorites_to_add = pick(
         list(set(all_places) - set(current_favorites)),
@@ -40,6 +50,7 @@ def add_favorites(all_places: list) -> None:
 
 
 def remove_favorites() -> None:
+    """Removes favorites from list."""
     current_favorites = retrieve_favorites()
     favorites_to_remove = pick(
         current_favorites,
@@ -53,17 +64,20 @@ def remove_favorites() -> None:
 
 
 def can_remove_favorites() -> bool:
+    """Returns True if favorites exist."""
     current_favorites = retrieve_favorites()
     return bool(current_favorites)  # True if there are favorites
 
 
 def can_add_favorites(all_places: list) -> bool:
+    """Returns True if not favorites exist."""
     current_favorites = retrieve_favorites()
     unfavorited_places = list(set(all_places) - set(current_favorites))
     return bool(unfavorited_places)  # True if there are unfavorites
 
 
 def should_add_favorites(possible_actions: list, all_places: list) -> None:
+    """Prompts user for editing operation (add, remove) or backtrack."""
     # -1 since choice.value expects an Option with value
     possible_actions.append(Option("Go back", -1))
     title = "Pick an option (or go back)"

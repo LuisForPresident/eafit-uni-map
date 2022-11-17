@@ -1,3 +1,7 @@
+"""
+Formats the output of the shortest path algorithm.
+"""
+
 from math import ceil
 from random import choice
 
@@ -5,6 +9,7 @@ from pick import pick, Option
 
 
 def show_directions(directions: list, stats: str) -> bool:
+    """Displays directions and prompts user: 1) main menu or 2) quit."""
     directions: str = join_directions(directions)
     title: str = f"{directions}\n\n{stats}"
 
@@ -14,6 +19,7 @@ def show_directions(directions: list, stats: str) -> bool:
 
 
 def join_directions(directions: list) -> str:
+    """Converts list of directions into a formatted string."""
     steps: list = []
     message: str
     options = [
@@ -38,18 +44,21 @@ def join_directions(directions: list) -> str:
 
 
 def convert_meters_to_steps(distance_in_meters: int) -> int:
+    """Converts meters to steps."""
     number_of_steps = distance_in_meters / 0.762  # Reference: 1 step = 0.762 meters
     number_of_steps = ceil(number_of_steps)  # Round to integer
     return number_of_steps
 
 
 def estimate_walking_time(distance_in_meters: int) -> int:
+    """Estimates walking time from walking distance."""
     walking_time = distance_in_meters / 1.788
     walking_time = ceil(walking_time)
     return walking_time
 
 
 def get_formatted_stats(steps, walking_time) -> str:
+    """Returns a formatted string with mins and secs."""
     distance = str(steps)
     timespan: int = walking_time
 
