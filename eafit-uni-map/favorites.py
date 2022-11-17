@@ -54,18 +54,13 @@ def remove_favorites() -> None:
 
 def can_remove_favorites() -> bool:
     current_favorites = retrieve_favorites()
-    if current_favorites:  # if list is not empty
-        return True
-    else:
-        return False
+    return bool(current_favorites)  # True if there are favorites
 
 
 def can_add_favorites(all_places: list) -> bool:
     current_favorites = retrieve_favorites()
-    if list(set(all_places) - set(current_favorites)):  # if list is not empty
-        return True
-    else:
-        return False
+    unfavorited_places = list(set(all_places) - set(current_favorites))
+    return bool(unfavorited_places)  # True if there are unfavorites
 
 
 def should_add_favorites(possible_actions: list, all_places: list) -> None:
