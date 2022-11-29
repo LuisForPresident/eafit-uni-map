@@ -37,38 +37,30 @@ Haven't tested yet… Works best on macOS and _probably_ Linux.
 2. [Miguel Suárez-Obando](https://www.github.com/MSO2023)
 
 ## Run
-1. Download the project
-    ```shell
-    git clone https://github.com/LuisForPresident/eafit-uni-map
-    ```
+```shell
+# clone the repo
+git clone https://github.com/LuisForPresident/eafit-uni-map.git
 
-2. Change directory
-    ```shell
-    cd eafit-uni-map
-    ```
+# change directory
+cd eafit-uni-map
 
-3. Install dependencies
-    ```shell
-    pip install -r requirements.txt
-    ```
+# install dependencies
+python3 -m pip install -r requirements.txt
 
-4. Change directory (again)
-    ```shell
-    cd eafit-uni-map
-    ```
+# change directory (again)
+cd eafit-uni-map
 
-5. Run
-    ```shell
-    python3 main.py
-    ```
+# run
+python3 main.py
+```
 
 ## Caveats
-- The file paths are relative. So you working directory must be `eafit-uni-map/eafit-uni-map`. Else, the files won't be found.
-- The font size is small.
-- Probably doesn't work well in Windows.
-- While changing `curses` screens, the terminal is visible.
+- The working directory must be `eafit-uni-map/eafit-uni-map` or the paths won't be found.
+- The font size is small. You have to zoom in manually.
+- Probably doesn't work well in Windows (see the [Python docs](https://docs.python.org/3/howto/curses.html#what-is-curses))
+- For an instant, while switching to the next screen, the terminal is visible.
 - `KeyboardInterrupt` errors are not accounted for, i.e., `Ctrl-C` exits the program.
-- There is no option to reset stats to 0.
+- There is no option to reset stats to 0. You have to do it manually.
 
 ## Graph
 ![A colored version of the graph, generated with graphonline.ru/en](./images/colored-graph.png)
@@ -80,9 +72,9 @@ Released under the BSD 3-Clause license.
 https://github.com/LuisForPresident/eafit-uni-map/
 
 ## Related
-- [Adrephos/EAFIT-maps](https://github.com/Adrephos/EAFIT-maps) (2021) [Java, JavaScript, Node.js, React]
+- [Adrephos/EAFIT-maps](https://github.com/Adrephos/EAFIT-maps)
 
-- [sicomEAFIT/CampusMovil-EAFIT](https://github.com/sicomEAFIT/CampusMovil-EAFIT) (2015) [Objective-C, Java, Ruby]
+- [sicomEAFIT/CampusMovil-EAFIT](https://github.com/sicomEAFIT/CampusMovil-EAFIT)
 
 ## Thanks
 - [Wang Dàpéng](https://github.com/wong2) for the [`pick`](https://pypi.org/project/pick/) module
