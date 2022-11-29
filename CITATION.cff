@@ -1,7 +1,3 @@
-# This CITATION.cff file was generated with cffinit. Visit
-# https://citation-file-format.github.io/cff-initializer-javascript/
-# to generate yours today!
-
 cff-version: 1.2.0
 title: EAFIT University Map
 message: >-
@@ -15,9 +11,9 @@ authors:
 identifiers:
   - type: url
     value: >-
-      https://github.com/LuisForPresident/eafit-uni-map/releases/tag/v2022.10.21-alpha
+      https://github.com/LuisForPresident/eafit-uni-map/releases/tag/v2022.11.07
     description: >-
-      The URL of version 2022.10.21-alpha of the
+      The URL of version 2022.11.07 of the
       software
 repository-code: 'https://github.com/LuisForPresident/eafit-uni-map'
 abstract: >-
@@ -33,6 +29,6 @@ keywords:
   - campus-map
   - eafit
   - st0243
-commit: 8d9f6271f635e9740a6ea159b8d6fa4121d11e51
-version: 2022.10.21-alpha
-date-released: '2022-10-21'
+commit: 9b485d212c8e98fda97c4d3d8835731cd593ff56
+version: 2022.11.07
+date-released: '2022-11-07'
