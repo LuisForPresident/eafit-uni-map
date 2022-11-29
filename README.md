@@ -1,20 +1,22 @@
 # eafit uni map • ![GitHub top language](https://img.shields.io/github/languages/top/LuisForPresident/eafit-uni-map?style=plastic) ![GitHub](https://img.shields.io/github/license/LuisForPresident/eafit-uni-map?style=plastic) ![GitHub Release Date](https://img.shields.io/github/release-date/LuisForPresident/eafit-uni-map?style=plastic) ![Project for uni](https://img.shields.io/badge/project-for%20uni-yellow?style=plastic)
 
-A command-line program that gives you a list of directions between places located in the campus of the Universidad EAFIT.
+A curses based interactive program that gives you a list of directions between places located in the campus of the Universidad EAFIT.
 
 ## Screenshot
 
 ![A screen capture of the main menu of the program.](./images/screenshot.png)
 
 ## Features
-- Get directions from one place to another
-- Choose destination from your favorite places
-- See steps and time estimates for the trip
-- Edit your favorite places (add or remove)
-- See all-time stats (steps and time)
+- 🗺 Get directions from one place to another
+- ⭐️ Choose destination from your favorite places
+- 💯 See steps and time estimates for the trip
+- 📝 Edit your favorite places (add or remove)
+- 🧐 See all-time stats (steps and time)
 
 ## Contributing
-I'd appreciate critical feedback. Leave an issue (if I have not archived the repo) or… hmm… see if I've added an email address to my GitHub profile yet.
+I'd appreciate critical feedback.
+
+But I don't want to post my email (yet).
 
 ## Reason for being
 As _the_ project for the practical course "Principles of Software Development" (ST0243).
@@ -33,8 +35,7 @@ Haven't tested yet… Works best on macOS and _probably_ Linux.
 2. `networkx` for [Dijkstra's algorithm](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm) ![PyPI - License](https://img.shields.io/pypi/l/networkx?style=flat)
 
 ## Authors
-1. [Luis M. Torres-Villegas](https://www.github.com/LuisForPresident)
-2. [Miguel Suárez-Obando](https://www.github.com/MSO2023)
+[Luis M. Torres-Villegas](https://www.github.com/LuisForPresident) and [Miguel Suárez-Obando](https://www.github.com/MSO2023).
 
 ## Run
 ```shell
@@ -66,19 +67,9 @@ python3 main.py
 ![A colored version of the graph, generated with graphonline.ru/en](./images/colored-graph.png)
 
 ## License
-Released under the BSD 3-Clause license.
-
-## GitHub repo
-https://github.com/LuisForPresident/eafit-uni-map/
-
-## Related
-- [Adrephos/EAFIT-maps](https://github.com/Adrephos/EAFIT-maps)
-
-- [sicomEAFIT/CampusMovil-EAFIT](https://github.com/sicomEAFIT/CampusMovil-EAFIT)
+[eafit-uni-map](https://github.com/LuisForPresident/eafit-uni-map/) is licensed under the BSD 3-Clause.
 
 ## Thanks
 - [Wang Dàpéng](https://github.com/wong2) for the [`pick`](https://pypi.org/project/pick/) module
-
 - [Viviana Hoyos-Sierra](https://github.com/Vivi-Hoyos2710) (TA) for the initial implementation of Dijkstra’s algorithm
-
 - [Alejandro Ríos-Muñoz](https://github.com/alejoriosm04) for his helpful advice
