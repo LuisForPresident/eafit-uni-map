@@ -25,10 +25,6 @@ def get_formatted_stats(steps=None, seconds=None) -> str:
 
         distance = str(current_stats["distance"])
         time = format_timespan(current_stats["time"])
-
-        formatted_stats: str = f"{distance} steps in {time}"
-
-        return formatted_stats
     else:
         distance = str(steps)
         time = format_timespan(seconds)
