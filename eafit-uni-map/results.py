@@ -10,8 +10,8 @@ from pick import pick, Option
 
 def show_directions(directions: list, stats: str) -> bool:
     """Displays directions and prompts user: 1) main menu or 2) quit."""
-    directions: str = join_directions(directions)
-    title: str = f"{directions}\n\n{stats}"
+    formatted_directions: str = join_directions(directions)
+    title: str = f"{formatted_directions}\n\n{stats}"
 
     options = [Option("Go back to main menu", True), Option("Quit program", False)]
     decision, index = pick(options, title, indicator="->")
@@ -29,7 +29,7 @@ def join_directions(directions: list) -> str:
         ". Walk till you see ",
         ". Stop to contemplate ",
     ]
-    places_str = f"From {directions[0]} to {directions[len(directions) - 1]}\n\n"
+    header = f"From {directions[0]} to {directions[len(directions) - 1]}\n\n"
 
     for step, place in enumerate(directions, 1):
         if step == 1:
@@ -39,8 +39,8 @@ def join_directions(directions: list) -> str:
         else:
             message = choice(options)
         steps.append(str(step) + message + place)
-    steps_str = "\n".join(steps)
-    return places_str + steps_str
+    formatted_directions = "\n".join(steps)
+    return header + formatted_directions
 
 
 def convert_meters_to_steps(distance_in_meters: int) -> int:

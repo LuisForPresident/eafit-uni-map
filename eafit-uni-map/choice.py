@@ -6,7 +6,7 @@ from a selection using the `pick` module.
 from pick import pick, Option
 
 
-def get_location(options: list) -> str:
+def prompt_for_location(options: list) -> str:
     """Prompts user for location."""
     options.sort()
     title = "Select your current location:"
@@ -14,7 +14,7 @@ def get_location(options: list) -> str:
     return location
 
 
-def get_destination(options: list, location: str) -> str:
+def prompt_for_destination(options: list, location: str) -> str:
     """Prompts user for destination."""
     # Remove location from the available options
     if location in options:  # For the favorites special case

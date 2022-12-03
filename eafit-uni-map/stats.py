@@ -28,8 +28,8 @@ def get_formatted_stats(steps=None, seconds=None) -> str:
     else:
         distance = str(steps)
         time = format_timespan(seconds)
-    formatted_stats: str = f"{distance} steps in {time}"
-    return formatted_stats
+    combined_stats: str = f"{distance} steps in {time}"
+    return combined_stats
 
 
 def update_stats(steps: int, walking_time: int) -> None:

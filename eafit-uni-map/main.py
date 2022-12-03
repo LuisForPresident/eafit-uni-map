@@ -28,7 +28,7 @@ def main():
 
         # Choose location
         location_options = list(Graph.nodes)
-        location = choice.get_location(location_options)
+        location = choice.prompt_for_location(location_options)
 
         # Choose destination from: All options or favorites?
         from_favorites = favorites.choose_from_favorites()
@@ -38,7 +38,7 @@ def main():
             destination_options = location_options
 
         # Choose destination
-        destination = choice.get_destination(destination_options, location)
+        destination = choice.prompt_for_destination(destination_options, location)
 
         # Compute the shortest path
         directions = dijkstra_path(Graph, location, destination)
@@ -54,8 +54,8 @@ def main():
         stats.update_stats(steps, walking_time)
 
         # Display directions and stats for that trip
-        stats_str = stats.get_formatted_stats(steps, walking_time)
-        start_again = results.show_directions(directions, stats_str)
+        trip_stats = stats.get_formatted_stats(steps, walking_time)
+        start_again = results.show_directions(directions, trip_stats)
 
         # Q: Go back to start menu or quit program?
         if start_again is True:
