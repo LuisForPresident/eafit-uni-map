@@ -30,9 +30,6 @@ def select_travel(stats: tuple) -> bool:
     options = [Option("Travel", True), Option("Edit favorites", False)]
     title = get_start_title(stats)
     decision, index = pick(options, title, indicator="->")
-    # decision is an Option object
-    # Implemented here:
-    # https://github.com/wong2/pick/commit/a043d6699f40818c0482e09a1f2fe3952d2e8c40
     return decision.value  # Either 'True' or 'False'
 
 
