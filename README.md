@@ -32,7 +32,9 @@ Haven't tested yet… Works best on macOS and _probably_ Linux.
 ### Dependencies
 1. `pick` for the "curses based interactive selection list in the terminal" ![PyPI - License](https://img.shields.io/pypi/l/pick?style=flat)
 
-2. `networkx` for [Dijkstra's algorithm](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm) ![PyPI - License](https://img.shields.io/pypi/l/networkx?style=flat)
+2. `networkx` for [Dijkstra's algorithm](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm) ![networkx - License](https://img.shields.io/pypi/l/networkx?style=flat)
+
+3. `humanfriendly` for the conversion from seconds to a human readable string ![humanfriendly - License](https://img.shields.io/pypi/l/humanfriendly?style=flat)
 
 ## Authors
 [Luis M. Torres-Villegas](https://www.github.com/LuisForPresident) and [Miguel Suárez-Obando](https://www.github.com/MSO2023).

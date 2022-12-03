@@ -55,25 +55,3 @@ def estimate_walking_time(distance_in_meters: int) -> int:
     walking_time = distance_in_meters / 1.788
     walking_time = ceil(walking_time)
     return walking_time
-
-
-def get_formatted_stats(steps, walking_time) -> str:
-    """Returns a formatted string with mins and secs."""
-    distance = str(steps)
-    timespan: int = walking_time
-
-    formatted_time: str
-
-    if timespan != 0:
-        minutes = int(timespan / 60)
-        seconds = int(timespan % 60)
-        if minutes >= 1:
-            formatted_time = f"{minutes} mins and {seconds} secs"
-        else:
-            formatted_time = f"{seconds} secs"
-    else:
-        formatted_time = "0 secs"
-
-    formatted_stats: str = f"{distance} steps in {formatted_time}"
-
-    return formatted_stats

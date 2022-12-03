@@ -6,6 +6,8 @@ from json import load, dump
 
 import config
 
+from humanfriendly import format_timespan
+
 
 def get_stats_dict() -> dict:
     """Returns time and distance as a dictionary."""
@@ -13,27 +15,24 @@ def get_stats_dict() -> dict:
         return load(file)
 
 
-def get_formatted_stats() -> str:
+def get_formatted_stats(steps=None, seconds=None) -> str:
     """Returns a formatted string with mins and secs."""
-    current_stats = get_stats_dict()
+    distance: str
+    time: str
 
-    distance = str(current_stats["distance"])
-    timespan: int = current_stats["time"]
+    if steps == None and seconds == None:
+        current_stats = get_stats_dict()
 
-    formatted_time: str
+        distance = str(current_stats["distance"])
+        time = format_timespan(current_stats["time"])
 
-    if timespan != 0:
-        minutes = int(timespan / 60)
-        seconds = int(timespan % 60)
-        if minutes >= 1:
-            formatted_time = f"{minutes} mins and {seconds} secs"
-        else:
-            formatted_time = f"{seconds} secs"
+        formatted_stats: str = f"{distance} steps in {time}"
+
+        return formatted_stats
     else:
-        formatted_time = "0 secs"
-
-    formatted_stats: str = f"{distance} steps in {formatted_time}"
-
+        distance = str(steps)
+        time = format_timespan(seconds)
+    formatted_stats: str = f"{distance} steps in {time}"
     return formatted_stats
 
 

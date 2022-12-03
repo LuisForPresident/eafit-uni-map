@@ -54,7 +54,7 @@ def main():
         stats.update_stats(steps, walking_time)
 
         # Display directions and stats for that trip
-        stats_str = results.get_formatted_stats(steps, walking_time)
+        stats_str = stats.get_formatted_stats(steps, walking_time)
         start_again = results.show_directions(directions, stats_str)
 
         # Q: Go back to start menu or quit program?
