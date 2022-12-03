@@ -25,7 +25,7 @@ def prompt_for_destination(options: list, location: str) -> str:
     return destination
 
 
-def select_travel(stats: tuple) -> bool:
+def select_travel(stats: str) -> bool:
     """Prompts user: 1) get directions or 2) edit favorites."""
     options = [Option("Travel", True), Option("Edit favorites", False)]
     title = get_start_title(stats)
