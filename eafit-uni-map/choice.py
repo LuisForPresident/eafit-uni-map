@@ -10,7 +10,7 @@ def prompt_for_location(options: list) -> str:
     """Prompts user for location."""
     options.sort()
     title = "Select your current location:"
-    location, index = pick(options, title, indicator="->")
+    location, _ = pick(options, title, indicator="->")
     return location
 
 
@@ -21,7 +21,7 @@ def prompt_for_destination(options: list, location: str) -> str:
         options.remove(location)  # Destination must not be the location
     options.sort()
     title = "Select your destination:"
-    destination, index = pick(options, title, indicator="->")
+    destination, _ = pick(options, title, indicator="->")
     return destination
 
 
@@ -29,7 +29,7 @@ def select_travel(stats: str) -> bool:
     """Prompts user: 1) get directions or 2) edit favorites."""
     options = [Option("Travel", True), Option("Edit favorites", False)]
     title = get_start_title(stats)
-    decision, index = pick(options, title, indicator="->")
+    decision, _ = pick(options, title, indicator="->")
     return decision.value  # Either 'True' or 'False'
 
 

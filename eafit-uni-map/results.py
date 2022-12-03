@@ -14,7 +14,7 @@ def show_directions(directions: list, stats: str) -> bool:
     title: str = f"{formatted_directions}\n\n{stats}"
 
     options = [Option("Go back to main menu", True), Option("Quit program", False)]
-    decision, index = pick(options, title, indicator="->")
+    decision, _ = pick(options, title, indicator="->")
     return decision.value
 
 

@@ -19,7 +19,7 @@ def choose_from_favorites() -> bool:
     if can_remove_favorites() is True:
         options.append(Option("Favorites", True))
     title = "Choose destination from:"
-    decision, index = pick(options, title, indicator="->")
+    decision, _ = pick(options, title, indicator="->")
     return decision.value
 
 
@@ -82,7 +82,7 @@ def should_add_favorites(possible_actions: list, all_places: list) -> None:
     possible_actions.append(Option("Go back", -1))
     title = "Pick an option (or go back)"
 
-    choice, index = pick(possible_actions, title)
+    choice, _ = pick(possible_actions, title)
     user_wants_to_add_favorites = choice.value
 
     if user_wants_to_add_favorites is True:
