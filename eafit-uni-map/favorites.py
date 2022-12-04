@@ -9,20 +9,6 @@ from pick import pick, Option
 import config
 
 
-def choose_from_favorites() -> bool:
-    """Prompts user: is destination chosen from:
-    1) all
-    or 2) favorites?"""
-    options = [
-        Option("All options", False),
-    ]
-    if can_remove_favorites() is True:
-        options.append(Option("Favorites", True))
-    title = "Choose destination from:"
-    decision, _ = pick(options, title, indicator="->")
-    return decision.value
-
-
 def retrieve_favorites() -> list:
     """Returns the list of favorites."""
     with open(config.FAVORITES_PATH, mode="r", encoding="utf-8") as file:
@@ -64,9 +50,9 @@ def remove_favorites() -> None:
 
 
 def can_remove_favorites() -> bool:
-    """Returns True if favorites exist."""
+    """Returns True if there are favorites."""
     current_favorites = retrieve_favorites()
-    return bool(current_favorites)  # True if there are favorites
+    return bool(current_favorites)
 
 
 def can_add_favorites(all_places: list) -> bool:
