@@ -36,7 +36,7 @@ You have walked {stats}"""
         indicator="->",
     )
 
-    if should_get_directions.value is True:
+    if should_get_directions.value:
 
         # Prompt the user to select the location
         location_places = list(Graph.nodes)
@@ -47,14 +47,14 @@ You have walked {stats}"""
         # Show the destinations from all options or just the favorite places?
         destination_places: list
         choose_from = [Option("All options", False)]
-        if favorites.can_remove_favorites() is True:
+        if favorites.can_remove_favorites():
             choose_from.append(Option("Favorites", True))
         from_favorites, _ = pick(
             choose_from, "Choose destination from:", indicator="->"
         )
 
         # Use the appropiate list of places
-        if from_favorites.value is True:
+        if from_favorites.value:
             destination_places = favorites.retrieve_favorites()
         else:
             destination_places = location_places
@@ -80,7 +80,7 @@ You have walked {stats}"""
         trip_stats = stats.get_formatted_stats(steps, walking_time)
         go_back_to_main_menu = results.show_directions(shortest_path, trip_stats)
 
-        if go_back_to_main_menu is True:
+        if go_back_to_main_menu:
             main()
         else:
             exit()

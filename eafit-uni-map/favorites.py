@@ -69,12 +69,11 @@ def should_add_favorites(possible_actions: list, all_places: list) -> None:
     title = "Pick an option (or go back)"
 
     choice, _ = pick(possible_actions, title)
-    user_wants_to_add_favorites = choice.value
+    is_adding = choice.value
 
-    if user_wants_to_add_favorites is True:
+    if is_adding:
         add_favorites(all_places)
-    elif user_wants_to_add_favorites is False:
+    elif not is_adding:
         remove_favorites()
     else:
-        # Abort editing
         pass
