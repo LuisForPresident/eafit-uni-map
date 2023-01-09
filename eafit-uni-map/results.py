@@ -29,7 +29,7 @@ def join_directions(directions: list) -> str:
         ". Walk till you see ",
         ". Stop to contemplate ",
     ]
-    header = f"From {directions[0]} to {directions[len(directions) - 1]}\n\n"
+    header = f"From {directions[0]} to {directions[-1]}\n\n"
 
     for step, place in enumerate(directions, 1):
         if step == 1:
